@@ -1,0 +1,110 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: User API
+  description: REST API for connect user and generate tokens
+  version: "1.0.0"
+# the domain of the service
+host: localhost
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /connect:
+    get:
+      summary: Connect User
+      description: |
+        The "connect" endpoint returns a token if the user exist and if the login is correct. 
+      parameters:
+        - name: user
+          in: query
+          description: Name of the user.
+          required: true
+          type: string
+          format: uuid
+        - name: password
+          in: query
+          description: User's password.
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - login
+      responses:
+        200:
+          description: Token
+          schema:
+            type: string
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /disconnect:
+    get:
+      summary: Disconnect the user
+      description: |
+        The "disconnect" endpoint returns check if the user exist and if the session is dissconnect.
+      parameters:
+        - name: user
+          in: query
+          description: Name of the user.
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - login
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+        500:
+          description: Error acces BD
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /check:
+    get:
+      summary: Verifi a valid token
+      description: |
+        The "check" endpoint returns a bool if the token is a valid token.
+      parameters:
+        - name: token
+          in: query
+          description: Token to check.
+          required: true
+          type: string
+          format: uuid
+      tags:
+        - check
+      responses:
+        200:
+          description: OK
+          schema:
+            type: string
+        500:
+          description: Error acces BD
+          schema:
+            $ref: '#/definitions/Error'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+definitions:
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
