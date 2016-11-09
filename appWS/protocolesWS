@@ -9,11 +9,11 @@ Communication with mobile android and authWS
 			Type: Application/json
 
 			Body 
-				Example: {"locationMap":["longitude": "132.12", "latitude": "50.56", "radius": "35.24"], "datePost": ["date": "12/11/17", "hours": "16.05"]}
+				Example: {"longitude": "132.12", "latitude": "50.56", "radius": "35.24", "date": "12/11/17", "hours": "16.05"}
 		
 			Data type: 
-					- Longitude : Long
-					- Latitude : Long
+					- Longitude : Double
+					- Latitude : Double
 					- Radius : Float
 					- Date : Date
 					- Hours : Float
@@ -24,7 +24,7 @@ Communication with mobile android and authWS
 
 				Return  
 					Example : (String) Message OK
-										Example: {id: "1", "locationTopic":["longitude": "123.12", "latitude": "21.56"], "popularity": "12", "datePost": ["date": "12/11/17", "hours": "16.05"], "topic": "Rugby"}, {id: "2", "locationTopic":["longitude": "145.12", "latitude": "25.56"], "popularity": "35", "datePost": ["date": "12/11/17", "hours": "13.00"], "topic": "Shopping"}
+										Example: {id: "1", "longitude": "123.12", "latitude": "21.56", "popularity": "12", "date": "12/11/17", "hours": "16.05", "topic": "Rugby"}, {id: "2", "longitude": "145.12", "latitude": "25.56", "popularity": "35", "date": "12/11/17", "hours": "13.00", "topic": "Shopping"}
 
 				- id : Integer
 
@@ -38,11 +38,11 @@ Communication with mobile android and authWS
 			Head (Token : String)
 
 			Body
-				Example: {"locationTopic":["longitude": "123.12", "latitude": "21.56"], "popularity": "12", "datePost": ["date": "12/11/17", "hours": "16.05"], "topic": "Rugby"}
+				Example: {"longitude": "123.12", "latitude": "21.56", "popularity": "12", "date": "12/11/17", "hours": "16.05", "topic": "Rugby"}
 
 				Data type: 
-					- Longitude : Long
-					- Latitude : Long
+					- Longitude : Double
+					- Latitude : Double		
 					- Popularity : Integer
 					- Date : Date
 					- Hours : Float
