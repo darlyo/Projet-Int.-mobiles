@@ -1,4 +1,4 @@
-an suimport Kitura
+import Kitura
 import HeliumLogger
 import Foundation
 import SwiftRedis
@@ -19,33 +19,33 @@ router.get("/hello") {
 
 router.get("/connect"){request, response, next in
 
-// Start framework redis
-let redis = Redis()
+	// Start framework redis
+	let redis = Redis()
 
-// Connect in local
-redis.connect(host: "localhost", port: 6379) { (redisError: NSError?) in
-    if let error = redisError {
-        response.send("error")
-    }
-    else {
-        print("Connected to Redis")
-        // set a key
-        redis.set("Redis", value: "on Swift") { (result: Bool, redisError: NSError?) in
-            if let error = redisError {
-                response.send("error")
-            }
-            // get the same key
-            redis.get("Redis") { (string: RedisString?, redisError: NSError?) in
-                if let error = redisError {
-                    response.send("error")
-                }
-                else if let string = string?.asString {
-                    response.send("Redis \(string)")
-                }
+	// Connect in local
+	redis.connect(host: "localhost", port: 6379) { (redisError: NSError?) in
+	    if let error = redisError {
+	        response.send("error")
 	    }
-        }
-    }
-}
+	    else {
+	        print("Connected to Redis")
+	        // set a key
+	        redis.set("Redis", value: "on Swift") { (result: Bool, redisError: NSError?) in
+	            if let error = redisError {
+	                response.send("error")
+	            }
+	            // get the same key
+	            redis.get("Redis") { (string: RedisString?, redisError: NSError?) in
+	                if let error = redisError {
+	                    response.send("error")
+	                }
+	                else if let string = string?.asString {
+	                    response.send("Redis \(string)")
+	                }
+		    	}	
+	        }
+	    }
+	}
     next()
 }
 
