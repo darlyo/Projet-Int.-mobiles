@@ -1,0 +1,106 @@
+Communication with mobile android and authWS
+
+		
+	A) app/message : type GET , format Json 
+		Collect messages according to Distance and date by android mobile (button: Near Me)
+
+		A.1) Request : 
+			
+			Type: Application/json
+
+			Body 
+				Example: {"locationMap":["longitude": "132.12", "latitude": "50.56", "radius": "35.24"], "datePost": ["date": "12/11/17", "hours": "16.05"]}
+		
+			Data type: 
+					- Longitude : Long
+					- Latitude : Long
+					- Radius : Float
+					- Date : Date
+					- Hours : Float
+
+			A.2) Response : 
+			
+		- HTTP status code 200 : Resultat des topics à proximité
+
+				Return  
+					Example : (String) Message OK
+										Example: {id: "1", "locationTopic":["longitude": "123.12", "latitude": "21.56"], "popularity": "12", "datePost": ["date": "12/11/17", "hours": "16.05"], "topic": "Rugby"}, {id: "2", "locationTopic":["longitude": "145.12", "latitude": "25.56"], "popularity": "35", "datePost": ["date": "12/11/17", "hours": "13.00"], "topic": "Shopping"}
+
+				- id : Integer
+
+
+	B) app/message : type POST , format Json
+		Creating a message by android mobile 
+
+		B.1) Request : 
+			
+			Type: Application/json
+			Head (Token : String)
+
+			Body
+				Example: {"locationTopic":["longitude": "123.12", "latitude": "21.56"], "popularity": "12", "datePost": ["date": "12/11/17", "hours": "16.05"], "topic": "Rugby"}
+
+				Data type: 
+					- Longitude : Long
+					- Latitude : Long
+					- Popularity : Integer
+					- Date : Date
+					- Hours : Float
+					- Topic : String
+
+			Je dois créer un ID pour chaque nouveau message reçu. Cette ID sera la clé (KEY)
+
+		B.2) Response : 
+			
+		- HTTP status code 201 : Le message a bien été créé
+
+				Return  
+					Example : (String) Message OK
+										Example: {"key": "12", "message": "Message OK"}
+
+		- HTTP status code 400 : Erreur du message 
+
+				Return
+					Example : (String) Error Message 
+
+		- HTTP status code 500 : Erreur Serveur Ajouter vers la BDD
+
+				Return
+					Example : (String) Error Service or BDD
+
+		- HTTP status code 501 : Erreur Service Authentification
+
+				Return
+					Example : (String) Error Web Service Auth
+
+ 
+	C) app/mess/{key} : type PUT , format Json
+						
+		Type: Application/json
+
+			Body: 
+
+				Example: {"key": 13}
+
+
+		C.2) Response : 
+
+			- HTTP status code 201 : La popularité à bien été pris en compte
+				Return 
+					Example: {"key": "13", "pop": "25", "message": "Message OK"}
+
+			- HTTP status code 400 : Erreur de l'ID (KEY)
+				Return
+					Example: (String) Error ID
+
+			- HTTP status code 500 : Erreur Serveur Ajouter vers la BDD
+				Return
+					Example : (String) Error Service or BDD
+
+			- HTTP status code 501 : Erreur Service Authentification
+				Return
+					Example : (String) Error Web Service Auth
+
+
+			
+				
