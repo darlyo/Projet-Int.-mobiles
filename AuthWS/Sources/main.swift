@@ -2,6 +2,7 @@ import Kitura
 import HeliumLogger
 import Foundation
 import SwiftRedis
+import SwiftyJSON
 
 #if os(Linux)
 import Glibc
@@ -16,20 +17,20 @@ func generateToken() -> String {
 
 	let length = 8
     let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    let len = UInt32(letters.length)
+    let len = UInt32(62)
 
     var randomString = ""
 
     for _ in 0 ..< length {
 #if os(Linux)
-        let rand = Int(random() % letters.length)
+        let rand = Int(random() % 62)
 #else
 		let rand = Int(arc4random_uniform(len))
 #endif
 
-        var nextChar = letters.character(at: Int(rand))
-        randomString += NSString(characters: &nextChar, length: 1) as String
-        //randomString += String(nextChar)
+        let nextChar = letters.character(at: Int(rand))
+        //randomString += NSString(characters: &nextChar, length: 1) as String
+        randomString += String(nextChar)
     }
 
     return randomString
@@ -51,7 +52,7 @@ router.get("/hello") {
     next()
 }
 
-router.post("/check/:token"){request, response, next in
+router.get("/check/:token"){request, response, next in
     let token = request.parameters["token"] ?? ""
 	// Start framework redisError
 	let redis = Redis()
@@ -104,7 +105,13 @@ router.post("/connect") { request, response, next in
 			        response.send("error")
 			    }
 			    else if pass!.asString == password {
-			        response.send("connected")
+		            let rand = random()
+			        redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
+						if let error = redisError {
+					        response.send("error")
+					    }
+					    response.send("connected whith token : \(rand)")
+			        }
 			    }
 			    else {
 			        response.send("connect echec")
