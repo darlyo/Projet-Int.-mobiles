@@ -1,0 +1,100 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "contentTypesString"
+provides-nominal:
+provides-member:
+depends-top-level:
+- "contentTypesString"
+- "StringLiteralType"
+depends-member:
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps9Equatable", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps8Hashable", "init"]
+- ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["P10Foundation12_CFBridgable", "init"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps9_Hashable", "init"]
+- ["P10Foundation12_NSBridgable", "init"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
+depends-nominal:
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "P10SwiftyJSON17JSONSubscriptType"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "P10Foundation12_CFBridgable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps9_Hashable"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/shim.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/Socket.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "8ca6e560c5e9b99bbf090eb79ac8785e"

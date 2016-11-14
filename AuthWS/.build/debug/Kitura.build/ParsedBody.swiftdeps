@@ -1,0 +1,77 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ParsedBody"
+provides-nominal:
+- "O6Kitura10ParsedBody"
+provides-member:
+- ["O6Kitura10ParsedBody", ""]
+depends-top-level:
+- "Data"
+- "ParsedBody"
+- "String"
+- "JSON"
+- "Part"
+depends-member:
+- ["Sa", "deinit"]
+- ["Vs10Dictionary", "deinit"]
+- ["V10SwiftyJSON4JSON", "deinit"]
+- ["Sq", "deinit"]
+- ["O6Kitura10ParsedBody", "Data"]
+- ["O6Kitura10ParsedBody", "JSON"]
+- ["O6Kitura10ParsedBody", "Part"]
+- ["O6Kitura10ParsedBody", "String"]
+- ["O6Kitura10ParsedBody", "asJSON"]
+- ["O6Kitura10ParsedBody", "asMultiPart"]
+- ["O6Kitura10ParsedBody", "asText"]
+- ["O6Kitura10ParsedBody", "asURLEncoded"]
+- ["O6Kitura10ParsedBody", "deinit"]
+- ["O6Kitura10ParsedBody", "json"]
+- ["O6Kitura10ParsedBody", "multipart"]
+- ["O6Kitura10ParsedBody", "raw"]
+- ["O6Kitura10ParsedBody", "text"]
+- ["O6Kitura10ParsedBody", "urlEncoded"]
+- ["SS", "deinit"]
+depends-nominal:
+- "Sa"
+- "Vs10Dictionary"
+- "V10SwiftyJSON4JSON"
+- "Sq"
+- "O6Kitura10ParsedBody"
+- "SS"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/shim.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/Socket.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "5d53dbea8b6ded2e9fafacb82cf9707d"

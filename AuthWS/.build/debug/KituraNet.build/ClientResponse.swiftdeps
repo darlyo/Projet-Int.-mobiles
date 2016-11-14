@@ -1,0 +1,179 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ClientResponse"
+provides-nominal:
+- "C9KituraNet14ClientResponse"
+provides-member:
+- ["C9KituraNet14ClientResponse", ""]
+depends-top-level:
+- "HTTPParserStatus"
+- "BufferList"
+- "HTTPIncomingMessage"
+- "IntegerLiteralType"
+- "FloatLiteralType"
+- "HTTPStatusCode"
+- "AssignmentPrecedence"
+- "ClientResponse"
+- !private "StringLiteralType"
+- !private "BooleanLiteralType"
+- !private "NSMutableData"
+depends-member:
+- ["Ps9AnyObject", "BufferList"]
+- ["Ps9AnyObject", "HTTPStatusCode"]
+- !private ["Ps9AnyObject", "NSMutableData"]
+- !private ["Ps9AnyObject", "fill"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "parse"]
+- ["Ps9AnyObject", "responseBuffers"]
+- ["Ps9AnyObject", "status"]
+- ["Ps9AnyObject", "statusCode"]
+- ["Ps9AnyObject", ""]
+- ["Sb", "deinit"]
+- ["C9KituraNet10BufferList", "deinit"]
+- !private ["C9KituraNet10BufferList", "fill"]
+- ["C9KituraNet10BufferList", "init"]
+- ["C9KituraNet14ClientResponse", "BufferList"]
+- ["C9KituraNet14ClientResponse", "HTTPParserStatus"]
+- ["C9KituraNet14ClientResponse", "HTTPStatusCode"]
+- !private ["C9KituraNet14ClientResponse", "NSMutableData"]
+- ["C9KituraNet14ClientResponse", "deinit"]
+- ["C9KituraNet14ClientResponse", "init"]
+- ["C9KituraNet14ClientResponse", "parse"]
+- ["C9KituraNet14ClientResponse", "responseBuffers"]
+- ["C9KituraNet14ClientResponse", "status"]
+- ["C9KituraNet14ClientResponse", "statusCode"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "unknown"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["C9KituraNet19HTTPIncomingMessage", "BufferList"]
+- ["C9KituraNet19HTTPIncomingMessage", "HTTPParserStatus"]
+- ["C9KituraNet19HTTPIncomingMessage", "HTTPStatusCode"]
+- !private ["C9KituraNet19HTTPIncomingMessage", "NSMutableData"]
+- ["C9KituraNet19HTTPIncomingMessage", "deinit"]
+- ["C9KituraNet19HTTPIncomingMessage", "init"]
+- ["C9KituraNet19HTTPIncomingMessage", "parse"]
+- ["C9KituraNet19HTTPIncomingMessage", "responseBuffers"]
+- ["C9KituraNet19HTTPIncomingMessage", "status"]
+- ["C9KituraNet19HTTPIncomingMessage", "statusCode"]
+- ["C9KituraNet19HTTPIncomingMessage", ""]
+- ["P9KituraNet18HTTPParserDelegate", "BufferList"]
+- ["P9KituraNet18HTTPParserDelegate", "HTTPStatusCode"]
+- !private ["P9KituraNet18HTTPParserDelegate", "NSMutableData"]
+- ["P9KituraNet18HTTPParserDelegate", "init"]
+- ["P9KituraNet18HTTPParserDelegate", "parse"]
+- ["P9KituraNet18HTTPParserDelegate", "responseBuffers"]
+- ["P9KituraNet18HTTPParserDelegate", "status"]
+- ["P9KituraNet18HTTPParserDelegate", "statusCode"]
+- ["P9KituraNet18HTTPParserDelegate", ""]
+- ["V9KituraNet16HTTPParserStatus", "deinit"]
+- ["O9KituraNet14HTTPStatusCode", "deinit"]
+- !private ["O9KituraNet14HTTPStatusCode", "init"]
+- ["O9KituraNet14HTTPStatusCode", "unknown"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "unknown"]
+- ["Si", "deinit"]
+- !private ["P10Foundation8NSCoding", "init"]
+- !private ["P10Foundation9NSCopying", "init"]
+- !private ["C10Foundation6NSData", "init"]
+- !private ["P10Foundation16NSMutableCopying", "init"]
+- ["C10Foundation13NSMutableData", "deinit"]
+- !private ["C10Foundation13NSMutableData", "init"]
+- !private ["C10Foundation8NSObject", "init"]
+- !private ["P10Foundation16NSObjectProtocol", "init"]
+- !private ["P10Foundation14NSSecureCoding", "init"]
+- ["Os5Never", "deinit"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "unknown"]
+- ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- ["Su", "deinit"]
+- !private ["P10Foundation12_CFBridgable", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "unknown"]
+- !private ["P10Foundation17_StructBridgeable", "init"]
+- !private ["P10Foundation21_StructTypeBridgeable", "init"]
+- !private ["P10Foundation15_SwiftBridgable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sb"
+- "C9KituraNet10BufferList"
+- "C9KituraNet14ClientResponse"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "C9KituraNet19HTTPIncomingMessage"
+- "P9KituraNet18HTTPParserDelegate"
+- "V9KituraNet16HTTPParserStatus"
+- "O9KituraNet14HTTPStatusCode"
+- "Ps8Hashable"
+- "Si"
+- !private "P10Foundation8NSCoding"
+- !private "P10Foundation9NSCopying"
+- !private "C10Foundation6NSData"
+- !private "P10Foundation16NSMutableCopying"
+- "C10Foundation13NSMutableData"
+- !private "C10Foundation8NSObject"
+- !private "P10Foundation16NSObjectProtocol"
+- !private "P10Foundation14NSSecureCoding"
+- "Os5Never"
+- "Sq"
+- "Ps16RawRepresentable"
+- "Vs12StaticString"
+- "Su"
+- !private "P10Foundation12_CFBridgable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "P10Foundation17_StructBridgeable"
+- !private "P10Foundation21_StructTypeBridgeable"
+- !private "P10Foundation15_SwiftBridgable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/Socket.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/shim.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+interface-hash: "2225c18e1b95f77ef2d0c65942fcfede"

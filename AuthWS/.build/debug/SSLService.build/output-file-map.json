@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.build/master.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/SSLService-0.11.53/Sources/SSLService.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.build/SSLService.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.build/SSLService.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.build/SSLService~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.build/SSLService.swiftdeps"
+  }
+}

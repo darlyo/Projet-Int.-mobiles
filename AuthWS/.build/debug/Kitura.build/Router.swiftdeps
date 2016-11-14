@@ -1,0 +1,715 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Router"
+provides-nominal:
+- "C6Kitura6Router"
+provides-member:
+- ["C6Kitura6Router", ""]
+depends-top-level:
+- "ServerResponse"
+- !private "UnicodeScalarType"
+- "RouterRequest"
+- !private "&&"
+- "String"
+- "AssignmentPrecedence"
+- !private "=="
+- !private "!"
+- !private "URL"
+- !private ">"
+- "ServerRequest"
+- !private "??"
+- "RouterElement"
+- "Bool"
+- "Void"
+- "RouterMiddleware"
+- "StringLiteralType"
+- !private "+"
+- "Router"
+- "FileResourceServer"
+- "BooleanLiteralType"
+- "ServerDelegate"
+- !private "TemplatingError"
+- "TemplateEngine"
+- !private "StaticFileServer"
+- !private "Log"
+- "RouterHandler"
+- !private "IntegerLiteralType"
+- "RouterResponse"
+- !private "RouterElementWalker"
+- "RouterMethod"
+- !private "FloatLiteralType"
+depends-member:
+- ["Ps9AnyObject", "FileResourceServer"]
+- !private ["Ps9AnyObject", "Log"]
+- !private ["Ps9AnyObject", "ResourcePathHandler"]
+- !private ["Ps9AnyObject", "Router"]
+- !private ["Ps9AnyObject", "RouterElement"]
+- !private ["Ps9AnyObject", "RouterElementWalker"]
+- !private ["Ps9AnyObject", "RouterRequest"]
+- !private ["Ps9AnyObject", "RouterResponse"]
+- !private ["Ps9AnyObject", "StaticFileServer"]
+- ["Ps9AnyObject", "String"]
+- ["Ps9AnyObject", "TemplateEngine"]
+- !private ["Ps9AnyObject", "TemplatingError"]
+- !private ["Ps9AnyObject", "URL"]
+- !private ["Ps9AnyObject", "add"]
+- !private ["Ps9AnyObject", "all"]
+- !private ["Ps9AnyObject", "defaultEngineFileExtension"]
+- !private ["Ps9AnyObject", "elements"]
+- !private ["Ps9AnyObject", "end"]
+- !private ["Ps9AnyObject", "error"]
+- !private ["Ps9AnyObject", "fileResourceServer"]
+- !private ["Ps9AnyObject", "getAbsolutePath"]
+- ["Ps9AnyObject", "handle"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "kituraResourcePrefix"]
+- !private ["Ps9AnyObject", "matchedPath"]
+- !private ["Ps9AnyObject", "method"]
+- !private ["Ps9AnyObject", "next"]
+- !private ["Ps9AnyObject", "parsedURL"]
+- !private ["Ps9AnyObject", "path"]
+- !private ["Ps9AnyObject", "process"]
+- !private ["Ps9AnyObject", "send"]
+- !private ["Ps9AnyObject", "sendDefaultResponse"]
+- !private ["Ps9AnyObject", "sendIfFound"]
+- !private ["Ps9AnyObject", "state"]
+- !private ["Ps9AnyObject", "status"]
+- !private ["Ps9AnyObject", "statusCode"]
+- !private ["Ps9AnyObject", "templateEngines"]
+- !private ["Ps9AnyObject", "verbose"]
+- !private ["Ps9AnyObject", "viewsPath"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "append"]
+- ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "append"]
+- !private ["Ps22BidirectionalIndexable", "count"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Vs9Character", "deinit"]
+- !private ["VSS13CharacterView", "IndexDistance"]
+- !private ["VSS13CharacterView", "count"]
+- !private ["VSS13CharacterView", "deinit"]
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "count"]
+- ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "characters"]
+- !private ["Ps10Comparable", "endIndex"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "isEmpty"]
+- !private ["Ps10Comparable", "range"]
+- !private ["Ps10Comparable", "removeSubrange"]
+- !private ["Ps10Comparable", "substring"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- !private ["Ps28CustomDebugStringConvertible", "characters"]
+- !private ["Ps28CustomDebugStringConvertible", "endIndex"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
+- !private ["Ps28CustomDebugStringConvertible", "pathExtension"]
+- !private ["Ps28CustomDebugStringConvertible", "range"]
+- !private ["Ps28CustomDebugStringConvertible", "removeSubrange"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "substring"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "characters"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "endIndex"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "pathExtension"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "range"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "removeSubrange"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "substring"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "characters"]
+- !private ["Ps17CustomReflectable", "endIndex"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "isEmpty"]
+- !private ["Ps17CustomReflectable", "range"]
+- !private ["Ps17CustomReflectable", "removeSubrange"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- !private ["Ps17CustomReflectable", "substring"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- !private ["Ps23CustomStringConvertible", "characters"]
+- !private ["Ps23CustomStringConvertible", "endIndex"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isEmpty"]
+- !private ["Ps23CustomStringConvertible", "noDefaultTemplateEngineAndNoExtensionSpecified"]
+- !private ["Ps23CustomStringConvertible", "noTemplateEngineForExtension"]
+- !private ["Ps23CustomStringConvertible", "path"]
+- !private ["Ps23CustomStringConvertible", "pathExtension"]
+- !private ["Ps23CustomStringConvertible", "range"]
+- !private ["Ps23CustomStringConvertible", "removeSubrange"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "substring"]
+- ["Vs10Dictionary", "deinit"]
+- ["Vs10Dictionary", "init"]
+- !private ["Vs10Dictionary", "subscript"]
+- !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "RawValue"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "characters"]
+- !private ["Ps9Equatable", "endIndex"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isEmpty"]
+- !private ["Ps9Equatable", "notFound"]
+- !private ["Ps9Equatable", "pathExtension"]
+- !private ["Ps9Equatable", "range"]
+- !private ["Ps9Equatable", "removeSubrange"]
+- !private ["Ps9Equatable", "substring"]
+- !private ["Ps9Equatable", "unknown"]
+- !private ["Ps5Error", "deinit"]
+- !private ["Ps5Error", "noDefaultTemplateEngineAndNoExtensionSpecified"]
+- !private ["Ps5Error", "noTemplateEngineForExtension"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps30ExpressibleByDictionaryLiteral", "init"]
+- !private ["Ps30ExpressibleByDictionaryLiteral", "subscript"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "characters"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "endIndex"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "range"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "removeSubrange"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "substring"]
+- !private ["Ps32ExpressibleByStringInterpolation", "characters"]
+- !private ["Ps32ExpressibleByStringInterpolation", "endIndex"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "isEmpty"]
+- !private ["Ps32ExpressibleByStringInterpolation", "range"]
+- !private ["Ps32ExpressibleByStringInterpolation", "removeSubrange"]
+- !private ["Ps32ExpressibleByStringInterpolation", "substring"]
+- !private ["Ps26ExpressibleByStringLiteral", "characters"]
+- !private ["Ps26ExpressibleByStringLiteral", "endIndex"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
+- !private ["Ps26ExpressibleByStringLiteral", "range"]
+- !private ["Ps26ExpressibleByStringLiteral", "removeSubrange"]
+- !private ["Ps26ExpressibleByStringLiteral", "substring"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "characters"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "endIndex"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "range"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "removeSubrange"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "substring"]
+- ["C6Kitura18FileResourceServer", "deinit"]
+- ["C6Kitura18FileResourceServer", "init"]
+- !private ["C6Kitura18FileResourceServer", "sendIfFound"]
+- !private ["Sf", "deinit"]
+- !private ["O9KituraNet14HTTPStatusCode", "RawValue"]
+- !private ["O9KituraNet14HTTPStatusCode", "deinit"]
+- !private ["O9KituraNet14HTTPStatusCode", "notFound"]
+- !private ["O9KituraNet14HTTPStatusCode", "unknown"]
+- !private ["Ps8Hashable", "RawValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "characters"]
+- !private ["Ps8Hashable", "endIndex"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isEmpty"]
+- !private ["Ps8Hashable", "notFound"]
+- !private ["Ps8Hashable", "pathExtension"]
+- !private ["Ps8Hashable", "range"]
+- !private ["Ps8Hashable", "removeSubrange"]
+- !private ["Ps8Hashable", "substring"]
+- !private ["Ps8Hashable", "unknown"]
+- !private ["VVSS13CharacterView5Index", "deinit"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "append"]
+- !private ["Ps9Indexable", "count"]
+- ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "append"]
+- !private ["Ps13IndexableBase", "count"]
+- ["Ps13IndexableBase", "init"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- ["Si", "deinit"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "characters"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "endIndex"]
+- ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "isEmpty"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "range"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "removeSubrange"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "substring"]
+- !private ["C9LoggerAPI3Log", "error"]
+- !private ["C9LoggerAPI3Log", "verbose"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "characters"]
+- !private ["Ps25LosslessStringConvertible", "endIndex"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "isEmpty"]
+- !private ["Ps25LosslessStringConvertible", "range"]
+- !private ["Ps25LosslessStringConvertible", "removeSubrange"]
+- !private ["Ps25LosslessStringConvertible", "substring"]
+- !private ["Ps10MirrorPath", "characters"]
+- !private ["Ps10MirrorPath", "endIndex"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "isEmpty"]
+- !private ["Ps10MirrorPath", "range"]
+- !private ["Ps10MirrorPath", "removeSubrange"]
+- !private ["Ps10MirrorPath", "substring"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps17MutableCollection", "append"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "append"]
+- ["Sq", "deinit"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "append"]
+- ["Vs5Range", "deinit"]
+- !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "append"]
+- !private ["Ps25RangeReplaceableIndexable", "count"]
+- !private ["Ps16RawRepresentable", "RawValue"]
+- !private ["Ps16RawRepresentable", "notFound"]
+- !private ["Ps16RawRepresentable", "unknown"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Foundation20ReferenceConvertible", "pathExtension"]
+- !private ["CC6Kitura16StaticFileServer19ResourcePathHandler", "getAbsolutePath"]
+- ["C6Kitura6Router", "Bool"]
+- ["C6Kitura6Router", "FileResourceServer"]
+- !private ["C6Kitura6Router", "Log"]
+- ["C6Kitura6Router", "Router"]
+- ["C6Kitura6Router", "RouterElement"]
+- !private ["C6Kitura6Router", "RouterElementWalker"]
+- ["C6Kitura6Router", "RouterHandler"]
+- ["C6Kitura6Router", "RouterMethod"]
+- ["C6Kitura6Router", "RouterMiddleware"]
+- ["C6Kitura6Router", "RouterRequest"]
+- ["C6Kitura6Router", "RouterResponse"]
+- ["C6Kitura6Router", "ServerRequest"]
+- ["C6Kitura6Router", "ServerResponse"]
+- !private ["C6Kitura6Router", "StaticFileServer"]
+- ["C6Kitura6Router", "String"]
+- ["C6Kitura6Router", "TemplateEngine"]
+- !private ["C6Kitura6Router", "TemplatingError"]
+- !private ["C6Kitura6Router", "URL"]
+- ["C6Kitura6Router", "Void"]
+- ["C6Kitura6Router", "add"]
+- !private ["C6Kitura6Router", "all"]
+- !private ["C6Kitura6Router", "defaultEngineFileExtension"]
+- ["C6Kitura6Router", "deinit"]
+- ["C6Kitura6Router", "elements"]
+- !private ["C6Kitura6Router", "fileResourceServer"]
+- ["C6Kitura6Router", "handle"]
+- ["C6Kitura6Router", "init"]
+- !private ["C6Kitura6Router", "kituraResourcePrefix"]
+- !private ["C6Kitura6Router", "process"]
+- ["C6Kitura6Router", "render"]
+- ["C6Kitura6Router", "route"]
+- ["C6Kitura6Router", "routingHelper"]
+- !private ["C6Kitura6Router", "sendDefaultResponse"]
+- ["C6Kitura6Router", "setDefault"]
+- !private ["C6Kitura6Router", "templateEngines"]
+- ["C6Kitura6Router", "viewsPath"]
+- ["C6Kitura13RouterElement", "deinit"]
+- !private ["C6Kitura13RouterElement", "init"]
+- !private ["C6Kitura19RouterElementWalker", "deinit"]
+- !private ["C6Kitura19RouterElementWalker", "init"]
+- !private ["C6Kitura19RouterElementWalker", "next"]
+- ["O6Kitura12RouterMethod", "deinit"]
+- ["P6Kitura16RouterMiddleware", "FileResourceServer"]
+- !private ["P6Kitura16RouterMiddleware", "Log"]
+- !private ["P6Kitura16RouterMiddleware", "ResourcePathHandler"]
+- !private ["P6Kitura16RouterMiddleware", "Router"]
+- !private ["P6Kitura16RouterMiddleware", "RouterElement"]
+- !private ["P6Kitura16RouterMiddleware", "RouterElementWalker"]
+- !private ["P6Kitura16RouterMiddleware", "RouterRequest"]
+- !private ["P6Kitura16RouterMiddleware", "RouterResponse"]
+- !private ["P6Kitura16RouterMiddleware", "StaticFileServer"]
+- ["P6Kitura16RouterMiddleware", "String"]
+- ["P6Kitura16RouterMiddleware", "TemplateEngine"]
+- !private ["P6Kitura16RouterMiddleware", "TemplatingError"]
+- !private ["P6Kitura16RouterMiddleware", "URL"]
+- !private ["P6Kitura16RouterMiddleware", "add"]
+- !private ["P6Kitura16RouterMiddleware", "all"]
+- !private ["P6Kitura16RouterMiddleware", "defaultEngineFileExtension"]
+- !private ["P6Kitura16RouterMiddleware", "elements"]
+- !private ["P6Kitura16RouterMiddleware", "fileResourceServer"]
+- ["P6Kitura16RouterMiddleware", "handle"]
+- !private ["P6Kitura16RouterMiddleware", "init"]
+- !private ["P6Kitura16RouterMiddleware", "kituraResourcePrefix"]
+- !private ["P6Kitura16RouterMiddleware", "process"]
+- !private ["P6Kitura16RouterMiddleware", "sendDefaultResponse"]
+- !private ["P6Kitura16RouterMiddleware", "templateEngines"]
+- !private ["P6Kitura16RouterMiddleware", "viewsPath"]
+- ["P6Kitura16RouterMiddleware", ""]
+- ["C6Kitura13RouterRequest", "deinit"]
+- !private ["C6Kitura13RouterRequest", "init"]
+- !private ["C6Kitura13RouterRequest", "matchedPath"]
+- !private ["C6Kitura13RouterRequest", "method"]
+- !private ["C6Kitura13RouterRequest", "parsedURL"]
+- ["C6Kitura14RouterResponse", "deinit"]
+- !private ["C6Kitura14RouterResponse", "end"]
+- !private ["C6Kitura14RouterResponse", "init"]
+- !private ["C6Kitura14RouterResponse", "send"]
+- !private ["C6Kitura14RouterResponse", "state"]
+- !private ["C6Kitura14RouterResponse", "status"]
+- !private ["C6Kitura14RouterResponse", "statusCode"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "count"]
+- ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "subscript"]
+- ["P9KituraNet14ServerDelegate", "FileResourceServer"]
+- !private ["P9KituraNet14ServerDelegate", "Log"]
+- !private ["P9KituraNet14ServerDelegate", "Router"]
+- !private ["P9KituraNet14ServerDelegate", "RouterElement"]
+- !private ["P9KituraNet14ServerDelegate", "RouterElementWalker"]
+- !private ["P9KituraNet14ServerDelegate", "RouterRequest"]
+- !private ["P9KituraNet14ServerDelegate", "RouterResponse"]
+- !private ["P9KituraNet14ServerDelegate", "StaticFileServer"]
+- ["P9KituraNet14ServerDelegate", "String"]
+- ["P9KituraNet14ServerDelegate", "TemplateEngine"]
+- !private ["P9KituraNet14ServerDelegate", "TemplatingError"]
+- !private ["P9KituraNet14ServerDelegate", "URL"]
+- !private ["P9KituraNet14ServerDelegate", "add"]
+- !private ["P9KituraNet14ServerDelegate", "all"]
+- !private ["P9KituraNet14ServerDelegate", "defaultEngineFileExtension"]
+- !private ["P9KituraNet14ServerDelegate", "elements"]
+- !private ["P9KituraNet14ServerDelegate", "fileResourceServer"]
+- ["P9KituraNet14ServerDelegate", "handle"]
+- !private ["P9KituraNet14ServerDelegate", "init"]
+- !private ["P9KituraNet14ServerDelegate", "kituraResourcePrefix"]
+- !private ["P9KituraNet14ServerDelegate", "process"]
+- !private ["P9KituraNet14ServerDelegate", "sendDefaultResponse"]
+- !private ["P9KituraNet14ServerDelegate", "templateEngines"]
+- !private ["P9KituraNet14ServerDelegate", "viewsPath"]
+- ["P9KituraNet14ServerDelegate", ""]
+- ["P9KituraNet13ServerRequest", "deinit"]
+- ["P9KituraNet14ServerResponse", "deinit"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- !private ["VC6Kitura14RouterResponse5State", "invokedEnd"]
+- !private ["VC6Kitura14RouterResponse5State", "invokedSend"]
+- !private ["C6Kitura16StaticFileServer", "ResourcePathHandler"]
+- !private ["SS", "characters"]
+- ["SS", "deinit"]
+- !private ["SS", "endIndex"]
+- ["SS", "init"]
+- !private ["SS", "isEmpty"]
+- !private ["SS", "range"]
+- !private ["SS", "removeSubrange"]
+- !private ["SS", "substring"]
+- ["P20KituraTemplateEngine14TemplateEngine", "deinit"]
+- !private ["P20KituraTemplateEngine14TemplateEngine", "fileExtension"]
+- !private ["P20KituraTemplateEngine14TemplateEngine", "render"]
+- ["O6Kitura15TemplatingError", "deinit"]
+- !private ["O6Kitura15TemplatingError", "noDefaultTemplateEngineAndNoExtensionSpecified"]
+- !private ["O6Kitura15TemplatingError", "noTemplateEngineForExtension"]
+- !private ["Ps16TextOutputStream", "characters"]
+- !private ["Ps16TextOutputStream", "endIndex"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "isEmpty"]
+- !private ["Ps16TextOutputStream", "range"]
+- !private ["Ps16TextOutputStream", "removeSubrange"]
+- !private ["Ps16TextOutputStream", "substring"]
+- !private ["Ps20TextOutputStreamable", "characters"]
+- !private ["Ps20TextOutputStreamable", "endIndex"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "isEmpty"]
+- !private ["Ps20TextOutputStreamable", "range"]
+- !private ["Ps20TextOutputStreamable", "removeSubrange"]
+- !private ["Ps20TextOutputStreamable", "substring"]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- ["V10Foundation3URL", "deinit"]
+- !private ["V10Foundation3URL", "init"]
+- !private ["V10Foundation3URL", "pathExtension"]
+- ["C9KituraNet9URLParser", "deinit"]
+- !private ["C9KituraNet9URLParser", "path"]
+- !private ["Sc", "deinit"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps14_ArrayProtocol", "append"]
+- !private ["P10Foundation12_CFBridgable", "Iterator"]
+- !private ["P10Foundation12_CFBridgable", "_Element"]
+- !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
+- !private ["P10Foundation12_CFBridgable", "append"]
+- !private ["P10Foundation12_CFBridgable", "characters"]
+- !private ["P10Foundation12_CFBridgable", "endIndex"]
+- ["P10Foundation12_CFBridgable", "init"]
+- !private ["P10Foundation12_CFBridgable", "isEmpty"]
+- !private ["P10Foundation12_CFBridgable", "pathExtension"]
+- !private ["P10Foundation12_CFBridgable", "range"]
+- !private ["P10Foundation12_CFBridgable", "removeSubrange"]
+- !private ["P10Foundation12_CFBridgable", "subscript"]
+- !private ["P10Foundation12_CFBridgable", "substring"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "characters"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "endIndex"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "range"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "removeSubrange"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "substring"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "characters"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "endIndex"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "range"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "removeSubrange"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "substring"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "characters"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "endIndex"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "range"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "removeSubrange"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "substring"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "characters"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "endIndex"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "range"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "removeSubrange"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "substring"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "pathExtension"]
+- !private ["Ps9_Hashable", "RawValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "characters"]
+- !private ["Ps9_Hashable", "endIndex"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isEmpty"]
+- !private ["Ps9_Hashable", "notFound"]
+- !private ["Ps9_Hashable", "pathExtension"]
+- !private ["Ps9_Hashable", "range"]
+- !private ["Ps9_Hashable", "removeSubrange"]
+- !private ["Ps9_Hashable", "substring"]
+- !private ["Ps9_Hashable", "unknown"]
+- !private ["P10Foundation12_NSBridgable", "Iterator"]
+- !private ["P10Foundation12_NSBridgable", "_Element"]
+- !private ["P10Foundation12_NSBridgable", "append"]
+- !private ["P10Foundation12_NSBridgable", "characters"]
+- !private ["P10Foundation12_NSBridgable", "endIndex"]
+- ["P10Foundation12_NSBridgable", "init"]
+- !private ["P10Foundation12_NSBridgable", "isEmpty"]
+- !private ["P10Foundation12_NSBridgable", "pathExtension"]
+- !private ["P10Foundation12_NSBridgable", "range"]
+- !private ["P10Foundation12_NSBridgable", "removeSubrange"]
+- !private ["P10Foundation12_NSBridgable", "subscript"]
+- !private ["P10Foundation12_NSBridgable", "substring"]
+- !private ["P10Foundation17_ObjectBridgeable", "Iterator"]
+- !private ["P10Foundation17_ObjectBridgeable", "_Element"]
+- !private ["P10Foundation17_ObjectBridgeable", "_getBuiltinLogicValue"]
+- !private ["P10Foundation17_ObjectBridgeable", "append"]
+- !private ["P10Foundation17_ObjectBridgeable", "characters"]
+- !private ["P10Foundation17_ObjectBridgeable", "endIndex"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
+- !private ["P10Foundation17_ObjectBridgeable", "isEmpty"]
+- !private ["P10Foundation17_ObjectBridgeable", "pathExtension"]
+- !private ["P10Foundation17_ObjectBridgeable", "range"]
+- !private ["P10Foundation17_ObjectBridgeable", "removeSubrange"]
+- !private ["P10Foundation17_ObjectBridgeable", "subscript"]
+- !private ["P10Foundation17_ObjectBridgeable", "substring"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "Iterator"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_Element"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_getBuiltinLogicValue"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "append"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "characters"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "endIndex"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "isEmpty"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "pathExtension"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "range"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "removeSubrange"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "subscript"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "substring"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- "Sb"
+- !private "Vs9Character"
+- !private "VSS13CharacterView"
+- "Ps10Collection"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Vs10Dictionary"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps30ExpressibleByDictionaryLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "C6Kitura18FileResourceServer"
+- !private "Sf"
+- !private "O9KituraNet14HTTPStatusCode"
+- "Ps8Hashable"
+- !private "VVSS13CharacterView5Index"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps16IteratorProtocol"
+- "P10SwiftyJSON17JSONSubscriptType"
+- !private "C9LoggerAPI3Log"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- "Vs5Range"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "CC6Kitura16StaticFileServer19ResourcePathHandler"
+- "C6Kitura6Router"
+- "C6Kitura13RouterElement"
+- !private "C6Kitura19RouterElementWalker"
+- "O6Kitura12RouterMethod"
+- "P6Kitura16RouterMiddleware"
+- "C6Kitura13RouterRequest"
+- "C6Kitura14RouterResponse"
+- "Ps8Sequence"
+- "P9KituraNet14ServerDelegate"
+- "P9KituraNet13ServerRequest"
+- "P9KituraNet14ServerResponse"
+- !private "Vs5Slice"
+- !private "VC6Kitura14RouterResponse5State"
+- !private "C6Kitura16StaticFileServer"
+- "SS"
+- "P20KituraTemplateEngine14TemplateEngine"
+- "O6Kitura15TemplatingError"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- "V10Foundation3URL"
+- "C9KituraNet9URLParser"
+- !private "Sc"
+- !private "Ps14_ArrayProtocol"
+- "P10Foundation12_CFBridgable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- "Ps9_Hashable"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/OpenSSL-0.2.2/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/CHTTPParser.build/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CEpoll-0.1.0/shim.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CCurl-0.2.3/module.modulemap"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/http_parser.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include/utils.h"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SSLService.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/Socket.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraTemplateEngine.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/SwiftyJSON.swiftmodule"
+interface-hash: "684fca8776b414b1c56cc83d32d8b2a0"

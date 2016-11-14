@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/AuthWS.build/master.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Sources/main.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/AuthWS.build/main.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/AuthWS.build/main.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/AuthWS.build/main~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/AuthWS.build/main.swiftdeps"
+  }
+}
