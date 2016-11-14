@@ -51,7 +51,7 @@ redis.connect(host: "", port: 6379) { (redisError: NSError?) in
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.get("/app/message") { request, response, next in
+router.get("/app/message") { request, response, next in //Renvoyer les informations au client android
     guard let parsedBody = request.body else {
         next()
         return 
@@ -64,15 +64,21 @@ router.get("/app/message") { request, response, next in
             let radius = jsonBody["radius"].string ?? ""
             let date = jsonBody["date"].string ?? ""
             let hours = jsonBody["hours"].string ?? ""
+
+    default:
+        break
     }
     //faire le calcul pour la longitude/latitude et radius 
 
-    //Recevoir les topics via la BDD
+    //Recevoir les topics via la BDD 
+
+
+
 
 }
     
 
-router.post("/app/message") { request, response, next in
+router.post("/app/message") { request, response, next in //Le mobile android poste un nouveau message
     guard let parsedBody = request.body else {
         next()
         return
@@ -110,7 +116,8 @@ router.post("/app/message") { request, response, next in
     
         newKey = nbKeys + 1; //variable pour attribuer un nombre pour la clé du nouveau message
         //Envoyer le nouveau message à la BDD 
-        redis.hmset(newKey, fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?,redisError: NSError?) in
+        //redis.hmset(newKey, fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?,redisError: NSError?) in
+        redis.hmset(String(newKey), fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?, redisError: NSError?) in
             if let error = redisError {
                 response.send("Error")
             }
@@ -133,14 +140,18 @@ router.post("app/mess/key") { request, response, next in
     switch(parsedBody) {
     case .json(let jsonBody):
         let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
-            redis.hincr(idMessage, field: "popularity", by: 1) {(value: Int?, redisError: NSError?) in//Incrémenter la valeur de la pop en fonction de l'ID du topic
-            
-                if let error = redisError {
-                    try response.send("Error").end() 
-                }
+         redis.hincr(idMessage, field: "popularity", by: 1) {(value: Int?, redisError: NSError?) in//Incrémenter la valeur de la pop en fonction de l'ID du topic
+            //Faire un hget pour voir la popularité de la clé 
+            //Faire un hset pour incrémenter la popularité de la clé 
+            if let error = redisError {
+                response.send("Error") 
             }
-    }   
-}
+        }
+    default:
+        break
+    }
+}   
+
 
 
 // Add an HTTP server and connect it to the router
