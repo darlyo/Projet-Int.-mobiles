@@ -1,0 +1,27 @@
+version: '2'
+services:
+  AppWS:
+    image: ibmcom/kitura-ubuntu
+    ports:
+    - "8091:8090"
+    volumes:
+    - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\appWS
+    links:
+    - redisUser
+    - AuthWS
+  AuthWS:
+    image: ibmcom/kitura-ubuntu
+    ports:
+    - "8090:8090"
+    volumes:
+    - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\AuthWS
+    links:
+    - redisAuth
+  redisAuth:
+    image: redis
+    ports:
+    - "6379:6379"
+  redisUser:
+    image: redis
+    ports:
+    - "6380:6379"
