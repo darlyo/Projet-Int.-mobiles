@@ -118,6 +118,7 @@ router.post("/app/message") { request, response, next in //Le mobile android pos
         //Envoyer le nouveau message à la BDD 
         //redis.hmset(newKey, fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?,redisError: NSError?) in
         redis.hmset(String(newKey), fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?, redisError: NSError?) in
+
             if let error = redisError {
                 response.send("Error")
             }
@@ -140,7 +141,7 @@ router.post("app/mess/key") { request, response, next in
     switch(parsedBody) {
     case .json(let jsonBody):
         let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
-         redis.hincr(idMessage, field: "popularity", by: 1) {(value: Int?, redisError: NSError?) in//Incrémenter la valeur de la pop en fonction de l'ID du topic
+        redis.hincr(idMessage, field: "popularity", by: 1) {(value: Int?, redisError: NSError?) in//Incrémenter la valeur de la pop en fonction de l'ID du topic
             //Faire un hget pour voir la popularité de la clé 
             //Faire un hset pour incrémenter la popularité de la clé 
             if let error = redisError {
@@ -153,9 +154,9 @@ router.post("app/mess/key") { request, response, next in
 }   
 
 
-
 // Add an HTTP server and connect it to the router
 Kitura.addHTTPServer(onPort: 8090, with: router)
 
 // Start the Kitura runloop (this call never returns)
 Kitura.run()
+
