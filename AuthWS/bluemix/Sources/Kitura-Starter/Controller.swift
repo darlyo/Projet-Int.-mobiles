@@ -57,7 +57,7 @@ public class Controller {
 
     // Serve static content from "public"
     router.all("/", middleware: StaticFileServer())
-    router.all("/connect", middleware: BodyParser())
+    router.all("/", middleware: BodyParser())
 
     // Basic GET request
     router.get("/hello", handler: getHello)
@@ -157,38 +157,38 @@ public class Controller {
     let redis = Redis()
     // Connect in local
     connectRedis(redis: redis) { (redisError: NSError?) in
-        if let error = redisError {
+      if let error = redisError {
+        jsonResponse["code"].stringValue = "500"
+        jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+
+        //response.send("error")
+      }
+
+      else {
+        print("Connected to Redis")
+        // set a key
+        redis.ttl(token) { (time: TimeInterval?, redisError: NSError?) in
+          if let error = redisError {
             jsonResponse["code"].stringValue = "500"
-            jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
-
-            //response.send("error")
+            jsonResponse["message"].stringValue = "Erreur cmd redis ttl: \(error)"                
+          }
+          else if time! == -1 {
+            jsonResponse["code"].stringValue = "500"
+            jsonResponse["message"].stringValue = "token invalide, time expire"
+            //response.send("token invalide, time expire")
+          }
+          else if time! == -2 {
+            jsonResponse["code"].stringValue = "500"
+            jsonResponse["message"].stringValue = "token inconnu"
+            //response.send("token : \(token) invalide")
+          }
+          else{
+            jsonResponse["code"].stringValue = "200"
+            jsonResponse["message"].stringValue = "valide"
+            //response..status(.OK).send("Check OK, token valide, time remaning : \(time)")
+          }
         }
-
-        else {
-            print("Connected to Redis")
-            // set a key
-            redis.ttl(token) { (time: TimeInterval?, redisError: NSError?) in
-                if let error = redisError {
-                  jsonResponse["code"].stringValue = "500"
-                  jsonResponse["message"].stringValue = "Erreur cmd redis ttl: \(error)"                
-                }
-                else if time! == -1 {
-                  jsonResponse["code"].stringValue = "500"
-                  jsonResponse["message"].stringValue = "token invalide, time expire"
-                  //response.send("token invalide, time expire")
-                }
-                else if time! == -2 {
-                  jsonResponse["code"].stringValue = "500"
-                  jsonResponse["message"].stringValue = "token inconnu"
-                  //response.send("token : \(token) invalide")
-                }
-                else{
-                  jsonResponse["code"].stringValue = "200"
-                  jsonResponse["message"].stringValue = "valide"
-                  //response..status(.OK).send("Check OK, token valide, time remaning : \(time)")
-                }
-            }
-        }
+      }
     }
     try response.status(.OK).send(json: jsonResponse).end()
   }
@@ -220,7 +220,7 @@ public class Controller {
       print("POST /connecte lecture json: \(user) : \(password)")
 
       let redis = Redis()
-      redis.connect(host: Auth_host, port: Auth_port) { (redisError: NSError?) in
+      connectRedis(redis: redis) { (redisError: NSError?) in
         print("POST /connecte connect redis OK")
 
         if let error = redisError {
@@ -231,36 +231,47 @@ public class Controller {
         else
         {
           redis.get(user) { (pass: RedisString?, redisError: NSError?) in
+            print("POST /connecte redis get")
 
             if let error = redisError {
+              print("POST /connecte redis erreur get")
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Erreur cmd redis get \(user): \(error)"
             }
-
-            else if pass!.asString == password {
-              let rand = random()
-              redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
-                if let error = redisError {
-                  jsonResponse["code"].stringValue = "500"
-                  jsonResponse["message"].stringValue = "Erreur cmd redis set token: \(error)"              
+            else if let mdp = pass {
+              if mdp.asString == password {
+                print("POST /connecte password valide")
+                let rand = random()
+                redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
+                  if let error = redisError {
+                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["message"].stringValue = "Erreur cmd redis set token: \(error)"              
+                  }
+                  else {
+                    jsonResponse["code"].stringValue = "200"
+                    jsonResponse["message"].stringValue = "\(rand)"              
+                  }
                 }
-                else {
-                  jsonResponse["code"].stringValue = "200"
-                  jsonResponse["message"].stringValue = "\(rand)"              
-                }
+              }
+              else {
+                print("POST /connecte invalide password")
+                jsonResponse["code"].stringValue = "500"
+                jsonResponse["message"].stringValue = "Invalide password"
               }
             }
             else {
+              print("POST /connecte user invalide")
               jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Invalide password"
+              jsonResponse["message"].stringValue = "Invalide user"
             }
           }
         }
       }
     default:
-        break
+      print("POST /connecte json non trouvé")
+      break
     }
-    next()
+    print("POST /connecte send response")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
