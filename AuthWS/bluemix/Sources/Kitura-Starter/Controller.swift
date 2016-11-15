@@ -203,26 +203,19 @@ public class Controller {
     Log.debug("POST - /connect route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
     
-    print("POST /connecte reçut")
-
     guard let parsedBody = request.body else {
-      print("POST /connect exist no body")
       next()
       return
     }
 
     var jsonResponse = JSON([:])
-    print("POST /connecte switch")
     switch(parsedBody) {
     case .json(let jsonBody):
-      print("POST /connecte case")
       let user = jsonBody["user"].string ?? ""
       let password = jsonBody["password"].string ?? ""
-      print("POST /connecte lecture json: \(user) : \(password)")
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
-        print("POST /connecte connect redis OK")
 
         if let error = redisError {
           jsonResponse["code"].stringValue = "500"
@@ -232,16 +225,13 @@ public class Controller {
         else
         {
           redis.get(user) { (pass: RedisString?, redisError: NSError?) in
-            print("POST /connecte redis get")
 
             if let error = redisError {
-              print("POST /connecte redis erreur get")
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Erreur cmd redis get \(user): \(error)"
             }
             else if let mdp = pass {
               if mdp.asString == password {
-                print("POST /connecte password valide")
                 let rand = random()
                 redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
                   if let error = redisError {
@@ -255,13 +245,11 @@ public class Controller {
                 }
               }
               else {
-                print("POST /connecte invalide password")
                 jsonResponse["code"].stringValue = "500"
                 jsonResponse["message"].stringValue = "Invalide password"
               }
             }
             else {
-              print("POST /connecte user invalide")
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Invalide user"
             }
@@ -269,20 +257,18 @@ public class Controller {
         }
       }
     default:
-      print("POST /connecte json non trouvé")
       break
     }
-    print("POST /connecte send response")
+    print("POST - /connect \(jsonResponse["message"].stringValue)")
+    Log.debug("POST - /connect \(jsonResponse["message"].stringValue)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
   public func postDisconnect(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
     Log.debug("POST - /disconnect route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    print("POST /disconnect")
 
     guard let parsedBody = request.body else {
-      print("POST /disconnect exist no body")
       next()
       return
     }
@@ -294,7 +280,6 @@ public class Controller {
 
       let user_redis = jsonBody["user"].string ?? ""
       let token = jsonBody["token"].string ?? ""
-      print("POST /disconnect user \(user_redis) , token \(token)")
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
@@ -314,7 +299,6 @@ public class Controller {
             }
 
             else if let user = u {
-              print("POST /disconnect compare \(user.asString) == \(user_redis)")
               if user.asString == user_redis {
 
                 redis.expire(token,inTime: (1 as TimeInterval)) { (ok: Bool?, redisError: NSError?) in
@@ -341,9 +325,10 @@ public class Controller {
         }
       }
     default:
-      print("POST /connecte json non trouvé")
       break
     }
+    print("POST - /disconnect \(jsonResponse["message"].stringValue)")
+    Log.debug("POST - /disconnect \(jsonResponse["message"].stringValue)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
@@ -351,27 +336,21 @@ public class Controller {
     Log.debug("POST - /signup route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
     
-    print("POST /signup reçut")
-
     guard let parsedBody = request.body else {
-      print("POST /signup exist no body")
       next()
       return
     }
 
     var jsonResponse = JSON([:])
-    print("POST /signup switch")
 
     switch(parsedBody) {
     case .json(let jsonBody):
 
-      print("POST /signup case")
       let user = jsonBody["user"].string ?? ""
       let password = jsonBody["password"].string ?? ""
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
-        print("POST /signup connect redis OK")
 
         if let error = redisError {
           jsonResponse["code"].stringValue = "500"
@@ -381,22 +360,16 @@ public class Controller {
         else
         {
           redis.set(user, value:password,exists:false) { (ok: Bool?, redisError: NSError?) in
-            print("POST /signup redis get")
-            print("retour set : \(ok)")
 
             if let error = redisError {
-              print("POST /signup redis erreur get")
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Erreur cmd redis set \(user): \(error)"
             }
-            else if ok == true {
-                print("POST /signup user create")
-                
+            else if ok == true {                
                 jsonResponse["code"].stringValue = "200"
                 jsonResponse["message"].stringValue = "user create"              
             }
             else {
-              print("POST /signup user already exist")
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "user already exist"              
             }
@@ -404,10 +377,10 @@ public class Controller {
         }
       }
     default:
-      print("POST /signup json non trouvé")
       break
     }
-    print("POST /signup send response")
+    print("POST - /sigup \(jsonResponse["message"].stringValue)")
+    Log.debug("POST - /sigup \(jsonResponse["message"].stringValue)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 }
