@@ -1,27 +1,53 @@
 version: '2'
 services:
+  traefik:
+    image: traefik
+    command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - C:\Program Files\Docker Toolbox
   AppWS:
     image: ibmcom/kitura-ubuntu
     ports:
-    - "8091:8090"
+      - "8091:8090"
     volumes:
-    - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\appWS
-    links:
-    - redisUser
-    - AuthWS
+      - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\appWS
+    depends_on:
+      - redisUser
+      - AuthWS
+    labels:
+      - "traefik.backend=wxcvbn"
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
   AuthWS:
     image: ibmcom/kitura-ubuntu
     ports:
-    - "8090:8090"
+      - "8090:8090"
     volumes:
-    - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\AuthWS
-    links:
-    - redisAuth
+      - C:\Users\kevin\Documents\GitHub\Projet-Int.-mobiles\AuthWS
+    depends_on:
+      - redisAuth
+    labels:
+      - "traefik.backend=wxcvbn"
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
   redisAuth:
     image: redis
     ports:
-    - "6379:6379"
+      - "6379:6379"
+    labels:
+      - "traefik.backend=wxcvbn"
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
   redisUser:
     image: redis
     ports:
-    - "6380:6379"
+      - "6380:6379"
+    labels:
+      - "traefik.backend=wxcvbn"
+      - "traefik.frontend.rule=Host:whoami.docker.localhost"
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.10.11.0/29
