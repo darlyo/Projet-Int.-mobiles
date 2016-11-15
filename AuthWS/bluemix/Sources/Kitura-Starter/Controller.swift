@@ -77,6 +77,9 @@ public class Controller {
 
     // Disconnect user, POST request
     router.post("/disconnect", handler: postDisconnect)
+
+    // Disconnect user, POST request
+    router.post("/signup", handler: postSignUp)
   }
 
 
@@ -344,4 +347,67 @@ public class Controller {
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
+  public func postSignUp(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+    Log.debug("POST - /signup route handler...")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    
+    print("POST /signup reçut")
+
+    guard let parsedBody = request.body else {
+      print("POST /signup exist no body")
+      next()
+      return
+    }
+
+    var jsonResponse = JSON([:])
+    print("POST /signup switch")
+
+    switch(parsedBody) {
+    case .json(let jsonBody):
+
+      print("POST /signup case")
+      let user = jsonBody["user"].string ?? ""
+      let password = jsonBody["password"].string ?? ""
+
+      let redis = Redis()
+      connectRedis(redis: redis) { (redisError: NSError?) in
+        print("POST /signup connect redis OK")
+
+        if let error = redisError {
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+        }
+
+        else
+        {
+          redis.set(user, value:password,exists:false) { (ok: Bool?, redisError: NSError?) in
+            print("POST /signup redis get")
+            print("retour set : \(ok)")
+
+            if let error = redisError {
+              print("POST /signup redis erreur get")
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Erreur cmd redis set \(user): \(error)"
+            }
+            else if ok == true {
+                print("POST /signup user create")
+                
+                jsonResponse["code"].stringValue = "200"
+                jsonResponse["message"].stringValue = "user create"              
+            }
+            else {
+              print("POST /signup user already exist")
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "user already exist"              
+            }
+          }
+        }
+      }
+    default:
+      print("POST /signup json non trouvé")
+      break
+    }
+    print("POST /signup send response")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
 }
