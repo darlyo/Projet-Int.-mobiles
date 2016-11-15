@@ -1,0 +1,184 @@
+swagger: '2.0'
+info:
+  title: APP Web Service
+  version: "1.0.0"
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /app/message:
+    get:
+      description: |
+        Collect messages according to Distance and date by android mobile
+      parameters:
+        - name: latitude
+          in: query
+          description: Latitude component of location.
+          required: true
+          type: number
+          format: float
+        - name: longitude
+          in: query
+          description: Longitude component of location.
+          required: true
+          type: number
+          format: float
+        - name: radius
+          in: query
+          description: Distance from geocoding.
+          required: true
+          type: number
+          format: float
+        - name: hours
+          in: query
+          description: Hours of posted messages.
+          required: true
+          type: number
+          format: float
+      tags:
+        - Message
+      responses:
+        200:
+          description: An array of topics
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Message'
+        400:
+          description: An error from customer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error400'
+        
+    post:
+      description: Creating a message by android mobile
+      parameters:
+        - name: longitude
+          in: query
+          description: Longitude component of location.
+          required: true
+          type: number
+          format: float
+        - name: latitude
+          in: query
+          description: Latitude component of location.
+          required: true
+          type: number
+          format: float
+        - name: popularity
+          in: query
+          description: Popularity for each topic
+          required: true
+          type: integer
+          format: int32
+        - name: date
+          in: query
+          description: Date of posted message
+          required: true
+          type: number
+          format: float
+        - name: hours
+          in: query
+          description: Date of posted message
+          required: true
+          type: string
+        - name: topic
+          in: query
+          description: Date of posted message
+          required: true
+          type: string
+      responses:
+        200:
+          description: An message of validation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MessageOk'
+        400:
+          description: An error from customer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Error400'
+          
+  /app/popularity/key:
+    put:
+      description: The customer shares the topic of the message
+      parameters:
+        - name: key
+          in: query
+          description: ID of topic
+          required: true
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: An array of price estimates by product
+          schema:
+            type: array
+            items:
+             $ref: '#/definitions/MessageOk'
+        400:
+          description: An error from customer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ErrorKey'
+definitions:
+  Message:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID message 
+      longitude:
+        type: string
+        description: Longitude component location
+      latitude:
+        type: string
+        description: Latitude component location
+      popularity:
+        type: string
+        description: number of people who like the topic
+      date:
+        type: string
+        description: Date of message posted
+      hours:
+        type: string
+        description: Hours of message posted
+      topic:
+        type: string
+        description: Name of message posted
+  Error400:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+  MessageOk:
+    type: object
+    properties:
+      id:
+        type: string
+      200:
+        type: string
+        description: Message topic OK
+  ErrorKey:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+        description: Error ID  
+      
+
