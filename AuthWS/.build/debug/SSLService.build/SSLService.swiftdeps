@@ -1,0 +1,541 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSLService"
+provides-nominal:
+- "C10SSLService10SSLService"
+- "VC10SSLService10SSLService13Configuration"
+provides-member:
+- ["C10SSLService10SSLService", ""]
+- ["VC10SSLService10SSLService13Configuration", ""]
+depends-top-level:
+- !private "SSL_CTRL_OPTIONS"
+- !private "SSL_load_error_strings"
+- "UnsafeRawPointer"
+- !private "SSL_library_init"
+- !private "SSL_accept"
+- "StringLiteralType"
+- !private "SSL_connect"
+- !private "ObjCBool"
+- "UnsafeMutablePointer"
+- !private "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY"
+- "SSL"
+- !private "SSL_CTX_check_private_key"
+- !private "ENOMEM"
+- "IntegerLiteralType"
+- !private "X509_V_OK"
+- !private "<"
+- !private "!"
+- !private "<="
+- !private "ECONNABORTED"
+- !private "&&"
+- "FloatLiteralType"
+- !private "SSL_CTX_set_verify_depth"
+- !private "SSL_read"
+- !private "SSL_CTX_free"
+- !private "ERR_reason_error_string"
+- "BooleanLiteralType"
+- !private "||"
+- !private "FileManager"
+- !private "SSL_VERIFY_NONE"
+- "Int32"
+- !private "SSL_FILETYPE_PEM"
+- !private "SSLError"
+- "Int"
+- !private "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT"
+- !private "EFAULT"
+- !private "SSL_CTX_use_certificate_file"
+- !private "SSL_CTX_use_PrivateKey_file"
+- !private "SSLv23_server_method"
+- "String"
+- "SSLServiceDelegate"
+- !private "ERR_free_strings"
+- !private "ENOENT"
+- !private "SSL_OP_NO_COMPRESSION"
+- !private "!="
+- !private "SSL_CTX_new"
+- !private "??"
+- !private "SSL_CTX_set_verify"
+- !private "SSL_set_fd"
+- "SSL_CTX"
+- "AssignmentPrecedence"
+- !private "EVP_cleanup"
+- !private "=="
+- !private "~="
+- "UnsafeMutableRawPointer"
+- !private "SSL_get_peer_certificate"
+- !private "SSL_OP_NO_SSLv2"
+- !private "ERR_get_error"
+- !private "SSL_CTX_set_cipher_list"
+- !private "|"
+- !private "+"
+- !private "SSLv23_client_method"
+- !private "SSL_shutdown"
+- "Bool"
+- !private "OPENSSL_add_all_algorithms_conf"
+- !private "SSL_CTX_load_verify_locations"
+- !private "SSL_OP_NO_SSLv3"
+- !private "SSL_CTX_ctrl"
+- "SSLService"
+- "SSL_METHOD"
+- !private "SSL_write"
+- "UnsafePointer"
+- !private "OPENSSL_config"
+- !private "SSL_CTX_use_certificate_chain_file"
+- !private "SSL_get_verify_result"
+- !private "SSL_new"
+- !private "SSL_free"
+- "Socket"
+depends-member:
+- !private ["Ps9AnyObject", "DEFAULT_VERIFY_DEPTH"]
+- !private ["Ps9AnyObject", "ECONNABORTED"]
+- !private ["Ps9AnyObject", "EFAULT"]
+- !private ["Ps9AnyObject", "ENOENT"]
+- !private ["Ps9AnyObject", "ENOMEM"]
+- !private ["Ps9AnyObject", "ERR_free_strings"]
+- !private ["Ps9AnyObject", "ERR_get_error"]
+- !private ["Ps9AnyObject", "ERR_reason_error_string"]
+- !private ["Ps9AnyObject", "EVP_cleanup"]
+- !private ["Ps9AnyObject", "FileManager"]
+- !private ["Ps9AnyObject", "Int"]
+- !private ["Ps9AnyObject", "Int32"]
+- !private ["Ps9AnyObject", "OPENSSL_add_all_algorithms_conf"]
+- !private ["Ps9AnyObject", "OPENSSL_config"]
+- !private ["Ps9AnyObject", "SSLError"]
+- !private ["Ps9AnyObject", "SSLService"]
+- !private ["Ps9AnyObject", "SSL_CTRL_OPTIONS"]
+- !private ["Ps9AnyObject", "SSL_CTX_check_private_key"]
+- !private ["Ps9AnyObject", "SSL_CTX_ctrl"]
+- !private ["Ps9AnyObject", "SSL_CTX_free"]
+- !private ["Ps9AnyObject", "SSL_CTX_load_verify_locations"]
+- !private ["Ps9AnyObject", "SSL_CTX_new"]
+- !private ["Ps9AnyObject", "SSL_CTX_set_cipher_list"]
+- !private ["Ps9AnyObject", "SSL_CTX_set_verify"]
+- !private ["Ps9AnyObject", "SSL_CTX_set_verify_depth"]
+- !private ["Ps9AnyObject", "SSL_CTX_use_PrivateKey_file"]
+- !private ["Ps9AnyObject", "SSL_CTX_use_certificate_chain_file"]
+- !private ["Ps9AnyObject", "SSL_CTX_use_certificate_file"]
+- !private ["Ps9AnyObject", "SSL_FILETYPE_PEM"]
+- !private ["Ps9AnyObject", "SSL_OP_NO_COMPRESSION"]
+- !private ["Ps9AnyObject", "SSL_OP_NO_SSLv2"]
+- !private ["Ps9AnyObject", "SSL_OP_NO_SSLv3"]
+- !private ["Ps9AnyObject", "SSL_VERIFY_NONE"]
+- !private ["Ps9AnyObject", "SSL_accept"]
+- !private ["Ps9AnyObject", "SSL_connect"]
+- !private ["Ps9AnyObject", "SSL_free"]
+- !private ["Ps9AnyObject", "SSL_get_peer_certificate"]
+- !private ["Ps9AnyObject", "SSL_get_verify_result"]
+- !private ["Ps9AnyObject", "SSL_library_init"]
+- !private ["Ps9AnyObject", "SSL_load_error_strings"]
+- !private ["Ps9AnyObject", "SSL_new"]
+- !private ["Ps9AnyObject", "SSL_read"]
+- !private ["Ps9AnyObject", "SSL_set_fd"]
+- !private ["Ps9AnyObject", "SSL_shutdown"]
+- !private ["Ps9AnyObject", "SSL_write"]
+- !private ["Ps9AnyObject", "SSLv23_client_method"]
+- !private ["Ps9AnyObject", "SSLv23_server_method"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT"]
+- !private ["Ps9AnyObject", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY"]
+- !private ["Ps9AnyObject", "X509_V_OK"]
+- !private ["Ps9AnyObject", "cSSL"]
+- !private ["Ps9AnyObject", "configuration"]
+- !private ["Ps9AnyObject", "context"]
+- !private ["Ps9AnyObject", "default"]
+- ["Ps9AnyObject", "deinitialize"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "fileExists"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "initialize"]
+- !private ["Ps9AnyObject", "initialized"]
+- !private ["Ps9AnyObject", "isServer"]
+- !private ["Ps9AnyObject", "method"]
+- ["Ps9AnyObject", "onAccept"]
+- ["Ps9AnyObject", "onConnect"]
+- !private ["Ps9AnyObject", "prepareConnection"]
+- !private ["Ps9AnyObject", "prepareContext"]
+- ["Ps9AnyObject", "recv"]
+- ["Ps9AnyObject", "send"]
+- !private ["Ps9AnyObject", "skipVerification"]
+- !private ["Ps9AnyObject", "socketfd"]
+- !private ["Ps9AnyObject", "throwLastError"]
+- !private ["Ps9AnyObject", "validate"]
+- !private ["Ps9AnyObject", "verifyCallback"]
+- !private ["Ps9AnyObject", "verifyConnection"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps17BitwiseOperations", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Vs9Character", "deinit"]
+- ["Ps10Comparable", "init"]
+- ["VC10SSLService10SSLService13Configuration", "Bool"]
+- ["VC10SSLService10SSLService13Configuration", "String"]
+- ["VC10SSLService10SSLService13Configuration", "caCertificateDirPath"]
+- ["VC10SSLService10SSLService13Configuration", "caCertificateFilePath"]
+- ["VC10SSLService10SSLService13Configuration", "certificateChainFilePath"]
+- ["VC10SSLService10SSLService13Configuration", "certificateFilePath"]
+- ["VC10SSLService10SSLService13Configuration", "certsAreSelfSigned"]
+- ["VC10SSLService10SSLService13Configuration", "cipherSuite"]
+- ["VC10SSLService10SSLService13Configuration", "deinit"]
+- ["VC10SSLService10SSLService13Configuration", "init"]
+- ["VC10SSLService10SSLService13Configuration", "keyFilePath"]
+- ["VC10SSLService10SSLService13Configuration", "password"]
+- !private ["Ps28CustomDebugStringConvertible", "default"]
+- !private ["Ps28CustomDebugStringConvertible", "fileExists"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "default"]
+- !private ["Ps23CustomStringConvertible", "fail"]
+- !private ["Ps23CustomStringConvertible", "fileExists"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "default"]
+- !private ["Ps9Equatable", "fileExists"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps5Error", "fail"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["C10Foundation11FileManager", "default"]
+- !private ["C10Foundation11FileManager", "deinit"]
+- !private ["C10Foundation11FileManager", "fileExists"]
+- !private ["Sf", "deinit"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "default"]
+- !private ["Ps8Hashable", "fileExists"]
+- ["Ps8Hashable", "init"]
+- ["SQ", "deinit"]
+- ["Si", "deinit"]
+- !private ["Si", "init"]
+- !private ["Vs5Int16", "deinit"]
+- ["Vs5Int32", "deinit"]
+- !private ["Vs5Int32", "init"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- !private ["C10Foundation8NSObject", "default"]
+- !private ["C10Foundation8NSObject", "fileExists"]
+- !private ["P10Foundation16NSObjectProtocol", "default"]
+- !private ["P10Foundation16NSObjectProtocol", "fileExists"]
+- ["Sq", "deinit"]
+- ["O6Socket8SSLError", "deinit"]
+- !private ["O6Socket8SSLError", "fail"]
+- ["C10SSLService10SSLService", "Bool"]
+- ["C10SSLService10SSLService", "Configuration"]
+- ["C10SSLService10SSLService", "DEFAULT_VERIFY_DEPTH"]
+- !private ["C10SSLService10SSLService", "ECONNABORTED"]
+- !private ["C10SSLService10SSLService", "EFAULT"]
+- !private ["C10SSLService10SSLService", "ENOENT"]
+- !private ["C10SSLService10SSLService", "ENOMEM"]
+- !private ["C10SSLService10SSLService", "ERR_free_strings"]
+- !private ["C10SSLService10SSLService", "ERR_get_error"]
+- !private ["C10SSLService10SSLService", "ERR_reason_error_string"]
+- !private ["C10SSLService10SSLService", "EVP_cleanup"]
+- !private ["C10SSLService10SSLService", "FileManager"]
+- ["C10SSLService10SSLService", "Int"]
+- ["C10SSLService10SSLService", "Int32"]
+- !private ["C10SSLService10SSLService", "OPENSSL_add_all_algorithms_conf"]
+- !private ["C10SSLService10SSLService", "OPENSSL_config"]
+- ["C10SSLService10SSLService", "OSStatus"]
+- !private ["C10SSLService10SSLService", "ObjCBool"]
+- ["C10SSLService10SSLService", "SSL"]
+- !private ["C10SSLService10SSLService", "SSLError"]
+- ["C10SSLService10SSLService", "SSLService"]
+- !private ["C10SSLService10SSLService", "SSL_CTRL_OPTIONS"]
+- ["C10SSLService10SSLService", "SSL_CTX"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_check_private_key"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_ctrl"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_free"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_load_verify_locations"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_new"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_set_cipher_list"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_set_verify"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_set_verify_depth"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_use_PrivateKey_file"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_use_certificate_chain_file"]
+- !private ["C10SSLService10SSLService", "SSL_CTX_use_certificate_file"]
+- !private ["C10SSLService10SSLService", "SSL_FILETYPE_PEM"]
+- ["C10SSLService10SSLService", "SSL_METHOD"]
+- !private ["C10SSLService10SSLService", "SSL_OP_NO_COMPRESSION"]
+- !private ["C10SSLService10SSLService", "SSL_OP_NO_SSLv2"]
+- !private ["C10SSLService10SSLService", "SSL_OP_NO_SSLv3"]
+- !private ["C10SSLService10SSLService", "SSL_VERIFY_NONE"]
+- !private ["C10SSLService10SSLService", "SSL_accept"]
+- !private ["C10SSLService10SSLService", "SSL_connect"]
+- !private ["C10SSLService10SSLService", "SSL_free"]
+- !private ["C10SSLService10SSLService", "SSL_get_peer_certificate"]
+- !private ["C10SSLService10SSLService", "SSL_get_verify_result"]
+- !private ["C10SSLService10SSLService", "SSL_library_init"]
+- !private ["C10SSLService10SSLService", "SSL_load_error_strings"]
+- !private ["C10SSLService10SSLService", "SSL_new"]
+- !private ["C10SSLService10SSLService", "SSL_read"]
+- !private ["C10SSLService10SSLService", "SSL_set_fd"]
+- !private ["C10SSLService10SSLService", "SSL_shutdown"]
+- !private ["C10SSLService10SSLService", "SSL_write"]
+- !private ["C10SSLService10SSLService", "SSLv23_client_method"]
+- !private ["C10SSLService10SSLService", "SSLv23_server_method"]
+- ["C10SSLService10SSLService", "Socket"]
+- ["C10SSLService10SSLService", "String"]
+- ["C10SSLService10SSLService", "UnsafeMutablePointer"]
+- ["C10SSLService10SSLService", "UnsafeMutableRawPointer"]
+- ["C10SSLService10SSLService", "UnsafePointer"]
+- ["C10SSLService10SSLService", "UnsafeRawPointer"]
+- !private ["C10SSLService10SSLService", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT"]
+- !private ["C10SSLService10SSLService", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY"]
+- !private ["C10SSLService10SSLService", "X509_V_OK"]
+- ["C10SSLService10SSLService", "cSSL"]
+- ["C10SSLService10SSLService", "configuration"]
+- ["C10SSLService10SSLService", "context"]
+- ["C10SSLService10SSLService", "deinit"]
+- ["C10SSLService10SSLService", "deinitialize"]
+- ["C10SSLService10SSLService", "init"]
+- ["C10SSLService10SSLService", "initialize"]
+- ["C10SSLService10SSLService", "initialized"]
+- ["C10SSLService10SSLService", "isServer"]
+- ["C10SSLService10SSLService", "method"]
+- ["C10SSLService10SSLService", "onAccept"]
+- ["C10SSLService10SSLService", "onConnect"]
+- !private ["C10SSLService10SSLService", "prepareConnection"]
+- !private ["C10SSLService10SSLService", "prepareContext"]
+- ["C10SSLService10SSLService", "recv"]
+- ["C10SSLService10SSLService", "send"]
+- ["C10SSLService10SSLService", "skipVerification"]
+- !private ["C10SSLService10SSLService", "throwLastError"]
+- !private ["C10SSLService10SSLService", "validate"]
+- ["C10SSLService10SSLService", "verifyCallback"]
+- !private ["C10SSLService10SSLService", "verifyConnection"]
+- !private ["P6Socket18SSLServiceDelegate", "DEFAULT_VERIFY_DEPTH"]
+- !private ["P6Socket18SSLServiceDelegate", "ECONNABORTED"]
+- !private ["P6Socket18SSLServiceDelegate", "EFAULT"]
+- !private ["P6Socket18SSLServiceDelegate", "ENOENT"]
+- !private ["P6Socket18SSLServiceDelegate", "ENOMEM"]
+- !private ["P6Socket18SSLServiceDelegate", "ERR_free_strings"]
+- !private ["P6Socket18SSLServiceDelegate", "ERR_get_error"]
+- !private ["P6Socket18SSLServiceDelegate", "ERR_reason_error_string"]
+- !private ["P6Socket18SSLServiceDelegate", "EVP_cleanup"]
+- !private ["P6Socket18SSLServiceDelegate", "FileManager"]
+- !private ["P6Socket18SSLServiceDelegate", "Int"]
+- !private ["P6Socket18SSLServiceDelegate", "Int32"]
+- !private ["P6Socket18SSLServiceDelegate", "OPENSSL_add_all_algorithms_conf"]
+- !private ["P6Socket18SSLServiceDelegate", "OPENSSL_config"]
+- !private ["P6Socket18SSLServiceDelegate", "SSLError"]
+- !private ["P6Socket18SSLServiceDelegate", "SSLService"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTRL_OPTIONS"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_check_private_key"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_ctrl"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_free"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_load_verify_locations"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_new"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_set_cipher_list"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_set_verify"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_set_verify_depth"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_use_PrivateKey_file"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_use_certificate_chain_file"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_CTX_use_certificate_file"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_FILETYPE_PEM"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_OP_NO_COMPRESSION"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_OP_NO_SSLv2"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_OP_NO_SSLv3"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_VERIFY_NONE"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_accept"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_connect"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_free"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_get_peer_certificate"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_get_verify_result"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_library_init"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_load_error_strings"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_new"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_read"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_set_fd"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_shutdown"]
+- !private ["P6Socket18SSLServiceDelegate", "SSL_write"]
+- !private ["P6Socket18SSLServiceDelegate", "SSLv23_client_method"]
+- !private ["P6Socket18SSLServiceDelegate", "SSLv23_server_method"]
+- !private ["P6Socket18SSLServiceDelegate", "String"]
+- !private ["P6Socket18SSLServiceDelegate", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT"]
+- !private ["P6Socket18SSLServiceDelegate", "X509_V_ERR_UNABLE_TO_GET_ISSUER_CERT_LOCALLY"]
+- !private ["P6Socket18SSLServiceDelegate", "X509_V_OK"]
+- !private ["P6Socket18SSLServiceDelegate", "cSSL"]
+- !private ["P6Socket18SSLServiceDelegate", "configuration"]
+- !private ["P6Socket18SSLServiceDelegate", "context"]
+- !private ["P6Socket18SSLServiceDelegate", "deinit"]
+- ["P6Socket18SSLServiceDelegate", "deinitialize"]
+- !private ["P6Socket18SSLServiceDelegate", "init"]
+- ["P6Socket18SSLServiceDelegate", "initialize"]
+- !private ["P6Socket18SSLServiceDelegate", "initialized"]
+- !private ["P6Socket18SSLServiceDelegate", "isServer"]
+- !private ["P6Socket18SSLServiceDelegate", "method"]
+- ["P6Socket18SSLServiceDelegate", "onAccept"]
+- ["P6Socket18SSLServiceDelegate", "onConnect"]
+- !private ["P6Socket18SSLServiceDelegate", "prepareConnection"]
+- !private ["P6Socket18SSLServiceDelegate", "prepareContext"]
+- ["P6Socket18SSLServiceDelegate", "recv"]
+- ["P6Socket18SSLServiceDelegate", "send"]
+- !private ["P6Socket18SSLServiceDelegate", "skipVerification"]
+- !private ["P6Socket18SSLServiceDelegate", "throwLastError"]
+- !private ["P6Socket18SSLServiceDelegate", "validate"]
+- !private ["P6Socket18SSLServiceDelegate", "verifyCallback"]
+- !private ["P6Socket18SSLServiceDelegate", "verifyConnection"]
+- ["P6Socket18SSLServiceDelegate", ""]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "init"]
+- ["C6Socket6Socket", "deinit"]
+- !private ["C6Socket6Socket", "delegate"]
+- !private ["C6Socket6Socket", "socketfd"]
+- !private ["P6Socket12SocketReader", "delegate"]
+- !private ["P6Socket12SocketReader", "socketfd"]
+- !private ["P6Socket12SocketWriter", "delegate"]
+- !private ["P6Socket12SocketWriter", "socketfd"]
+- !private ["Ps10Strideable", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- ["Sp", "deinit"]
+- ["Sv", "deinit"]
+- !private ["SP", "deinit"]
+- !private ["P10Foundation13_BitShiftable", "init"]
+- !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
+- ["P10Foundation12_CFBridgable", "init"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "default"]
+- !private ["Ps9_Hashable", "fileExists"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["P10Foundation12_IntegerLike", "init"]
+- ["P10Foundation12_NSBridgable", "init"]
+- !private ["P10Foundation17_ObjectBridgeable", "_getBuiltinLogicValue"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_getBuiltinLogicValue"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
+- ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "Ps7CVarArg"
+- !private "Vs9Character"
+- "Ps10Comparable"
+- "VC10SSLService10SSLService13Configuration"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "C10Foundation11FileManager"
+- !private "Sf"
+- "Ps8Hashable"
+- "SQ"
+- "Si"
+- !private "Vs5Int16"
+- "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "C10Foundation8NSObject"
+- !private "P10Foundation16NSObjectProtocol"
+- "Sq"
+- "O6Socket8SSLError"
+- "C10SSLService10SSLService"
+- "P6Socket18SSLServiceDelegate"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- "C6Socket6Socket"
+- !private "P6Socket12SocketReader"
+- !private "P6Socket12SocketWriter"
+- !private "Ps10Strideable"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "Sc"
+- "Sp"
+- "Sv"
+- !private "SP"
+- !private "P10Foundation13_BitShiftable"
+- "P10Foundation12_CFBridgable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "P10Foundation12_IntegerLike"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+- "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/Socket.swiftmodule"
+interface-hash: "2eccb9587363a080234561ea0825dadc"

@@ -1,0 +1,203 @@
+{
+  "": {
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/master.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ClientRequest.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientRequest.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientRequest.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientRequest~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientRequest.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/IncomingSocketManager.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketManager.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketManager.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketManager~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketManager.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ConnectionUpgrader.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgrader.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgrader.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgrader~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgrader.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/Error.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Error.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Error.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Error~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Error.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/BufferList.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/BufferList.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/BufferList.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/BufferList~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/BufferList.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/IncomingSocketHandler.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketHandler.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketHandler.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketHandler~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketHandler.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/IncomingSocketProcessor.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketProcessor.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketProcessor.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketProcessor~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingSocketProcessor.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ListenerGroup.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ListenerGroup.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ListenerGroup.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ListenerGroup~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ListenerGroup.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ServerResponse.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerResponse.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerResponse.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerResponse~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerResponse.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ServerRequest.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerRequest.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerRequest.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerRequest~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerRequest.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ClientResponse.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientResponse.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientResponse.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientResponse~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ClientResponse.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HeadersContainer.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HeadersContainer.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HeadersContainer.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HeadersContainer~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HeadersContainer.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/SPIUtils.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/SPIUtils.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/SPIUtils.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/SPIUtils~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/SPIUtils.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/ConnectionUpgradeFactory.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgradeFactory.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgradeFactory.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgradeFactory~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ConnectionUpgradeFactory.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/Server/ServerState.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerState.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server/ServerState.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerState~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerState.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/Server/ServerLifecycleListener.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerLifecycleListener.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server/ServerLifecycleListener.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerLifecycleListener~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerLifecycleListener.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/Server/Server.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server/Server.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/Server/ServerDelegate.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerDelegate.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/Server/ServerDelegate.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerDelegate~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/ServerDelegate.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/HTTP.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/HTTP.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/HTTPIncomingMessage.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPIncomingMessage.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/HTTPIncomingMessage.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPIncomingMessage~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPIncomingMessage.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/IncomingHTTPSocketProcessor.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingHTTPSocketProcessor.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/IncomingHTTPSocketProcessor.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingHTTPSocketProcessor~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/IncomingHTTPSocketProcessor.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/HTTPServerResponse.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerResponse.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/HTTPServerResponse.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerResponse~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerResponse.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/HTTPServer.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServer.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/HTTPServer.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServer~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServer.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTP/HTTPServerRequest.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerRequest.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTP/HTTPServerRequest.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerRequest~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPServerRequest.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGI.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGI.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGIServerRequest.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerRequest.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGIServerRequest.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerRequest~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerRequest.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGIRecordParser.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordParser.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGIRecordParser.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordParser~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordParser.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGIServerResponse.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerResponse.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGIServerResponse.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerResponse~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServerResponse.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGIServer.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServer.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGIServer.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServer~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIServer.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/FastCGI/FastCGIRecordCreate.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordCreate.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGI/FastCGIRecordCreate.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordCreate~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/FastCGIRecordCreate.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTPParser/URLParser.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/URLParser.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser/URLParser.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/URLParser~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/URLParser.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTPParser/HTTPParserStatus.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParserStatus.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser/HTTPParserStatus.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParserStatus~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParserStatus.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-net-1.1.0/Sources/KituraNet/HTTPParser/HTTPParser.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser/HTTPParser.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/KituraNet.build/HTTPParser.swiftdeps"
+  }
+}

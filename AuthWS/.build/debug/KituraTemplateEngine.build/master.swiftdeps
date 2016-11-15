@@ -1,0 +1,5 @@
+version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
+options: "2d76de53165fecc9768b702467b9cacd"
+build_time: [532001795, 558779000]
+inputs:
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Kitura-TemplateEngine-1.1.0/Sources/KituraTemplateEngine/TemplateEngine.swift": [532001772, 0]

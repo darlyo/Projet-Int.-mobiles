@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.build/master.swiftdeps"
+  },
+  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": {
+    "dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.build/Logger.d",
+    "object": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.build/Logger.swift.o",
+    "swiftmodule": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.build/Logger~partial.swiftmodule",
+    "swift-dependencies": "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.build/Logger.swiftdeps"
+  }
+}

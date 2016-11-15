@@ -1,0 +1,572 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TerminalColor"
+- "HeliumLoggerFormatValues"
+- "HeliumLogger"
+provides-nominal:
+- "O12HeliumLogger13TerminalColor"
+- "O12HeliumLogger24HeliumLoggerFormatValues"
+- "C12HeliumLogger12HeliumLogger"
+provides-member:
+- ["O12HeliumLogger13TerminalColor", ""]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", ""]
+- ["C12HeliumLogger12HeliumLogger", ""]
+depends-top-level:
+- !private "~="
+- "=="
+- "AssignmentPrecedence"
+- !private "Log"
+- !private "IntegerLiteralType"
+- !private "print"
+- "TernaryPrecedence"
+- "LoggerMessageType"
+- !private "FloatLiteralType"
+- !private "DateFormatter"
+- "HeliumLogger"
+- "BooleanLiteralType"
+- !private "??"
+- !private "NSURL"
+- !private "stdout"
+- "String"
+- "TerminalColor"
+- !private "setbuf"
+- "Logger"
+- !private ">="
+- "StringLiteralType"
+- "Int"
+- !private "UnicodeScalarType"
+- "HeliumLoggerFormatValues"
+- !private "Date"
+- "Bool"
+depends-member:
+- !private ["Ps9AnyObject", "Date"]
+- !private ["Ps9AnyObject", "DateFormatter"]
+- !private ["Ps9AnyObject", "HeliumLogger"]
+- !private ["Ps9AnyObject", "HeliumLoggerFormatValues"]
+- !private ["Ps9AnyObject", "Log"]
+- !private ["Ps9AnyObject", "NSURL"]
+- !private ["Ps9AnyObject", "TerminalColor"]
+- !private ["Ps9AnyObject", "colored"]
+- !private ["Ps9AnyObject", "dateFormat"]
+- !private ["Ps9AnyObject", "defaultDateFormat"]
+- !private ["Ps9AnyObject", "defaultFormat"]
+- !private ["Ps9AnyObject", "detailedFormat"]
+- !private ["Ps9AnyObject", "details"]
+- !private ["Ps9AnyObject", "format"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "isLogging"]
+- !private ["Ps9AnyObject", "lastPathComponent"]
+- ["Ps9AnyObject", "log"]
+- !private ["Ps9AnyObject", "logger"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "setbuf"]
+- !private ["Ps9AnyObject", "stdout"]
+- !private ["Ps9AnyObject", "string"]
+- !private ["Ps9AnyObject", "type"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Vs9Character", "deinit"]
+- !private ["Vs11ClosedRange", "deinit"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Comparable", "hashValue"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "replacingOccurrences"]
+- !private ["Vs20CountableClosedRange", "deinit"]
+- !private ["Vs14CountableRange", "deinit"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "dateFormat"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "lastPathComponent"]
+- !private ["Ps28CustomDebugStringConvertible", "replacingOccurrences"]
+- !private ["Ps28CustomDebugStringConvertible", "string"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "replacingOccurrences"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "replacingOccurrences"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "dateFormat"]
+- !private ["Ps23CustomStringConvertible", "description"]
+- ["Ps23CustomStringConvertible", "error"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "lastPathComponent"]
+- !private ["Ps23CustomStringConvertible", "rawValue"]
+- !private ["Ps23CustomStringConvertible", "replacingOccurrences"]
+- !private ["Ps23CustomStringConvertible", "string"]
+- ["Ps23CustomStringConvertible", "verbose"]
+- ["Ps23CustomStringConvertible", "warning"]
+- ["V10Foundation4Date", "deinit"]
+- !private ["V10Foundation4Date", "init"]
+- !private ["C10Foundation13DateFormatter", "dateFormat"]
+- ["C10Foundation13DateFormatter", "deinit"]
+- !private ["C10Foundation13DateFormatter", "init"]
+- !private ["C10Foundation13DateFormatter", "string"]
+- !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "All"]
+- ["Ps9Equatable", "RawValue"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "date"]
+- !private ["Ps9Equatable", "dateFormat"]
+- !private ["Ps9Equatable", "description"]
+- ["Ps9Equatable", "error"]
+- ["Ps9Equatable", "file"]
+- !private ["Ps9Equatable", "foreground"]
+- ["Ps9Equatable", "function"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "lastPathComponent"]
+- ["Ps9Equatable", "line"]
+- ["Ps9Equatable", "logType"]
+- ["Ps9Equatable", "message"]
+- ["Ps9Equatable", "rawValue"]
+- !private ["Ps9Equatable", "red"]
+- !private ["Ps9Equatable", "replacingOccurrences"]
+- !private ["Ps9Equatable", "string"]
+- ["Ps9Equatable", "verbose"]
+- ["Ps9Equatable", "warning"]
+- !private ["Ps9Equatable", "yellow"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "replacingOccurrences"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "replacingOccurrences"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "replacingOccurrences"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "replacingOccurrences"]
+- !private ["Sf", "deinit"]
+- !private ["C10Foundation9Formatter", "dateFormat"]
+- !private ["C10Foundation9Formatter", "init"]
+- !private ["C10Foundation9Formatter", "string"]
+- !private ["Ps8Hashable", "All"]
+- ["Ps8Hashable", "RawValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "date"]
+- !private ["Ps8Hashable", "dateFormat"]
+- !private ["Ps8Hashable", "description"]
+- ["Ps8Hashable", "error"]
+- ["Ps8Hashable", "file"]
+- !private ["Ps8Hashable", "foreground"]
+- ["Ps8Hashable", "function"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "lastPathComponent"]
+- ["Ps8Hashable", "line"]
+- ["Ps8Hashable", "logType"]
+- ["Ps8Hashable", "message"]
+- ["Ps8Hashable", "rawValue"]
+- !private ["Ps8Hashable", "red"]
+- !private ["Ps8Hashable", "replacingOccurrences"]
+- !private ["Ps8Hashable", "string"]
+- ["Ps8Hashable", "verbose"]
+- ["Ps8Hashable", "warning"]
+- !private ["Ps8Hashable", "yellow"]
+- ["Ps8Hashable", ""]
+- ["C12HeliumLogger12HeliumLogger", "Bool"]
+- !private ["C12HeliumLogger12HeliumLogger", "Date"]
+- !private ["C12HeliumLogger12HeliumLogger", "DateFormatter"]
+- !private ["C12HeliumLogger12HeliumLogger", "HeliumLogger"]
+- !private ["C12HeliumLogger12HeliumLogger", "HeliumLoggerFormatValues"]
+- ["C12HeliumLogger12HeliumLogger", "Int"]
+- !private ["C12HeliumLogger12HeliumLogger", "Log"]
+- ["C12HeliumLogger12HeliumLogger", "LoggerMessageType"]
+- !private ["C12HeliumLogger12HeliumLogger", "NSURL"]
+- ["C12HeliumLogger12HeliumLogger", "String"]
+- !private ["C12HeliumLogger12HeliumLogger", "TerminalColor"]
+- ["C12HeliumLogger12HeliumLogger", "colored"]
+- ["C12HeliumLogger12HeliumLogger", "dateFormat"]
+- !private ["C12HeliumLogger12HeliumLogger", "defaultDateFormat"]
+- !private ["C12HeliumLogger12HeliumLogger", "defaultFormat"]
+- ["C12HeliumLogger12HeliumLogger", "deinit"]
+- !private ["C12HeliumLogger12HeliumLogger", "detailedFormat"]
+- ["C12HeliumLogger12HeliumLogger", "details"]
+- ["C12HeliumLogger12HeliumLogger", "format"]
+- ["C12HeliumLogger12HeliumLogger", "init"]
+- ["C12HeliumLogger12HeliumLogger", "isLogging"]
+- ["C12HeliumLogger12HeliumLogger", "log"]
+- !private ["C12HeliumLogger12HeliumLogger", "print"]
+- !private ["C12HeliumLogger12HeliumLogger", "setbuf"]
+- !private ["C12HeliumLogger12HeliumLogger", "stdout"]
+- !private ["C12HeliumLogger12HeliumLogger", "type"]
+- ["C12HeliumLogger12HeliumLogger", "use"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "All"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "HeliumLoggerFormatValues"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "RawValue"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "_toAnyHashable"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "date"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "deinit"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "file"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "function"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "hashValue"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "init"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "line"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "logType"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "message"]
+- ["O12HeliumLogger24HeliumLoggerFormatValues", "rawValue"]
+- ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Vs16IndexingIterator", "Element"]
+- ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["C9LoggerAPI3Log", "logger"]
+- !private ["P9LoggerAPI6Logger", "Date"]
+- !private ["P9LoggerAPI6Logger", "DateFormatter"]
+- !private ["P9LoggerAPI6Logger", "HeliumLogger"]
+- !private ["P9LoggerAPI6Logger", "HeliumLoggerFormatValues"]
+- !private ["P9LoggerAPI6Logger", "Log"]
+- !private ["P9LoggerAPI6Logger", "NSURL"]
+- !private ["P9LoggerAPI6Logger", "TerminalColor"]
+- !private ["P9LoggerAPI6Logger", "colored"]
+- !private ["P9LoggerAPI6Logger", "dateFormat"]
+- !private ["P9LoggerAPI6Logger", "defaultDateFormat"]
+- !private ["P9LoggerAPI6Logger", "defaultFormat"]
+- !private ["P9LoggerAPI6Logger", "detailedFormat"]
+- !private ["P9LoggerAPI6Logger", "details"]
+- !private ["P9LoggerAPI6Logger", "format"]
+- !private ["P9LoggerAPI6Logger", "init"]
+- ["P9LoggerAPI6Logger", "isLogging"]
+- ["P9LoggerAPI6Logger", "log"]
+- !private ["P9LoggerAPI6Logger", "print"]
+- !private ["P9LoggerAPI6Logger", "setbuf"]
+- !private ["P9LoggerAPI6Logger", "stdout"]
+- !private ["P9LoggerAPI6Logger", "type"]
+- ["P9LoggerAPI6Logger", ""]
+- ["O9LoggerAPI17LoggerMessageType", "deinit"]
+- !private ["O9LoggerAPI17LoggerMessageType", "description"]
+- ["O9LoggerAPI17LoggerMessageType", "error"]
+- !private ["O9LoggerAPI17LoggerMessageType", "rawValue"]
+- ["O9LoggerAPI17LoggerMessageType", "verbose"]
+- ["O9LoggerAPI17LoggerMessageType", "warning"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "replacingOccurrences"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "replacingOccurrences"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["P10Foundation8NSCoding", "dateFormat"]
+- !private ["P10Foundation8NSCoding", "init"]
+- !private ["P10Foundation8NSCoding", "lastPathComponent"]
+- !private ["P10Foundation8NSCoding", "string"]
+- !private ["P10Foundation9NSCopying", "dateFormat"]
+- !private ["P10Foundation9NSCopying", "init"]
+- !private ["P10Foundation9NSCopying", "lastPathComponent"]
+- !private ["P10Foundation9NSCopying", "string"]
+- !private ["C10Foundation8NSObject", "dateFormat"]
+- !private ["C10Foundation8NSObject", "init"]
+- !private ["C10Foundation8NSObject", "lastPathComponent"]
+- !private ["C10Foundation8NSObject", "string"]
+- !private ["P10Foundation16NSObjectProtocol", "dateFormat"]
+- !private ["P10Foundation16NSObjectProtocol", "init"]
+- !private ["P10Foundation16NSObjectProtocol", "lastPathComponent"]
+- !private ["P10Foundation16NSObjectProtocol", "string"]
+- !private ["P10Foundation14NSSecureCoding", "init"]
+- !private ["P10Foundation14NSSecureCoding", "lastPathComponent"]
+- ["C10Foundation5NSURL", "deinit"]
+- !private ["C10Foundation5NSURL", "init"]
+- !private ["C10Foundation5NSURL", "lastPathComponent"]
+- ["Sq", "deinit"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Vs5Range", "deinit"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps16RawRepresentable", "All"]
+- ["Ps16RawRepresentable", "RawValue"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- ["Ps16RawRepresentable", "date"]
+- !private ["Ps16RawRepresentable", "description"]
+- ["Ps16RawRepresentable", "error"]
+- ["Ps16RawRepresentable", "file"]
+- !private ["Ps16RawRepresentable", "foreground"]
+- ["Ps16RawRepresentable", "function"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "line"]
+- ["Ps16RawRepresentable", "logType"]
+- ["Ps16RawRepresentable", "message"]
+- ["Ps16RawRepresentable", "rawValue"]
+- !private ["Ps16RawRepresentable", "red"]
+- ["Ps16RawRepresentable", "verbose"]
+- ["Ps16RawRepresentable", "warning"]
+- !private ["Ps16RawRepresentable", "yellow"]
+- ["Ps16RawRepresentable", ""]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps10Strideable", "hashValue"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- !private ["SS", "replacingOccurrences"]
+- ["O12HeliumLogger13TerminalColor", "RawValue"]
+- ["O12HeliumLogger13TerminalColor", "_toAnyHashable"]
+- ["O12HeliumLogger13TerminalColor", "background"]
+- ["O12HeliumLogger13TerminalColor", "deinit"]
+- ["O12HeliumLogger13TerminalColor", "foreground"]
+- ["O12HeliumLogger13TerminalColor", "hashValue"]
+- ["O12HeliumLogger13TerminalColor", "init"]
+- ["O12HeliumLogger13TerminalColor", "rawValue"]
+- ["O12HeliumLogger13TerminalColor", "red"]
+- ["O12HeliumLogger13TerminalColor", "white"]
+- ["O12HeliumLogger13TerminalColor", "yellow"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "replacingOccurrences"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "replacingOccurrences"]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["P10Foundation13_BitShiftable", "hashValue"]
+- !private ["P10Foundation12_CFBridgable", "Iterator"]
+- !private ["P10Foundation12_CFBridgable", "_Element"]
+- !private ["P10Foundation12_CFBridgable", "_getBuiltinLogicValue"]
+- ["P10Foundation12_CFBridgable", "init"]
+- !private ["P10Foundation12_CFBridgable", "lastPathComponent"]
+- !private ["P10Foundation12_CFBridgable", "replacingOccurrences"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "replacingOccurrences"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "replacingOccurrences"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "replacingOccurrences"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "replacingOccurrences"]
+- !private ["Ps9_Hashable", "All"]
+- ["Ps9_Hashable", "RawValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "date"]
+- !private ["Ps9_Hashable", "dateFormat"]
+- !private ["Ps9_Hashable", "description"]
+- ["Ps9_Hashable", "error"]
+- ["Ps9_Hashable", "file"]
+- !private ["Ps9_Hashable", "foreground"]
+- ["Ps9_Hashable", "function"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "lastPathComponent"]
+- ["Ps9_Hashable", "line"]
+- ["Ps9_Hashable", "logType"]
+- ["Ps9_Hashable", "message"]
+- ["Ps9_Hashable", "rawValue"]
+- !private ["Ps9_Hashable", "red"]
+- !private ["Ps9_Hashable", "replacingOccurrences"]
+- !private ["Ps9_Hashable", "string"]
+- ["Ps9_Hashable", "verbose"]
+- ["Ps9_Hashable", "warning"]
+- !private ["Ps9_Hashable", "yellow"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["P10Foundation12_IntegerLike", "hashValue"]
+- !private ["P10Foundation12_NSBridgable", "Iterator"]
+- !private ["P10Foundation12_NSBridgable", "_Element"]
+- ["P10Foundation12_NSBridgable", "init"]
+- !private ["P10Foundation12_NSBridgable", "replacingOccurrences"]
+- !private ["P10Foundation17_ObjectBridgeable", "Iterator"]
+- !private ["P10Foundation17_ObjectBridgeable", "_Element"]
+- !private ["P10Foundation17_ObjectBridgeable", "_getBuiltinLogicValue"]
+- !private ["P10Foundation17_ObjectBridgeable", "hashValue"]
+- ["P10Foundation17_ObjectBridgeable", "init"]
+- !private ["P10Foundation17_ObjectBridgeable", "replacingOccurrences"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "Iterator"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_Element"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "_getBuiltinLogicValue"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "hashValue"]
+- ["P10Foundation21_ObjectTypeBridgeable", "init"]
+- !private ["P10Foundation21_ObjectTypeBridgeable", "replacingOccurrences"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+- !private ["P10Foundation17_StructBridgeable", "init"]
+- !private ["P10Foundation17_StructBridgeable", "lastPathComponent"]
+- !private ["P10Foundation21_StructTypeBridgeable", "init"]
+- !private ["P10Foundation21_StructTypeBridgeable", "lastPathComponent"]
+- !private ["P10Foundation15_SwiftBridgable", "init"]
+- !private ["P10Foundation15_SwiftBridgable", "lastPathComponent"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "Ps7CVarArg"
+- !private "Vs9Character"
+- !private "Vs11ClosedRange"
+- !private "Ps10Collection"
+- "Ps10Comparable"
+- !private "Vs20CountableClosedRange"
+- !private "Vs14CountableRange"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "V10Foundation4Date"
+- "C10Foundation13DateFormatter"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Sf"
+- !private "C10Foundation9Formatter"
+- "Ps8Hashable"
+- "C12HeliumLogger12HeliumLogger"
+- "O12HeliumLogger24HeliumLoggerFormatValues"
+- "SQ"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
+- !private "C9LoggerAPI3Log"
+- "P9LoggerAPI6Logger"
+- "O9LoggerAPI17LoggerMessageType"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "P10Foundation8NSCoding"
+- !private "P10Foundation9NSCopying"
+- !private "C10Foundation8NSObject"
+- !private "P10Foundation16NSObjectProtocol"
+- !private "P10Foundation14NSSecureCoding"
+- "C10Foundation5NSURL"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Vs5Range"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- "O12HeliumLogger13TerminalColor"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "Sc"
+- !private "Ps14_ArrayProtocol"
+- !private "P10Foundation13_BitShiftable"
+- "P10Foundation12_CFBridgable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "P10Foundation12_IntegerLike"
+- "P10Foundation12_NSBridgable"
+- "P10Foundation17_ObjectBridgeable"
+- "P10Foundation21_ObjectTypeBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+- !private "P10Foundation17_StructBridgeable"
+- !private "P10Foundation21_StructTypeBridgeable"
+- !private "P10Foundation15_SwiftBridgable"
+depends-dynamic-lookup:
+depends-external:
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Swift.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/Visibility.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStdint.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/UnicodeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/SwiftStddef.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/LibcShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeStubs.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RuntimeShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/RefCount.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/HeapObject.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/GlobalObjects.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/FoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/DispatchShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/glibc.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/shims/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/.build/debug/LoggerAPI.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Foundation.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Dispatch.swiftmodule"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/dispatch/module.modulemap"
+- "/home/kevin/Downloads/swift-3.0.1-RELEASE-ubuntu16.04/usr/lib/swift/linux/x86_64/Glibc.swiftmodule"
+interface-hash: "a401d811ec9f9232f40c335d41db6c3f"
