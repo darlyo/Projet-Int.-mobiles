@@ -29,7 +29,7 @@ do {
   Log.info("Server will be started on '\(controller.url)'.")
   //CloudFoundryDeploymentTracker(repositoryURL: "https://github.com/IBM-Bluemix/Kitura-Starter.git", codeVersion: nil).track()
   Kitura.addHTTPServer(onPort: controller.port, with: controller.router)
-  // Start Kitura-Starter server
+  //Start Kitura-Starter server
   Kitura.run()
 } catch let error {
   Log.error(error.localizedDescription)

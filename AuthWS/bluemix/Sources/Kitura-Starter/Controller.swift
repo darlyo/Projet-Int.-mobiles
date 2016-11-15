@@ -37,6 +37,9 @@ public class Controller {
 
   let Auth_port = 6379 as Int32
   let Auth_host = "localhost"
+  let Auth_password = "password"
+
+  let authenticate = false
 
   var port: Int {
     get { return appEnv.port }
@@ -54,12 +57,14 @@ public class Controller {
 
     // Serve static content from "public"
     router.all("/", middleware: StaticFileServer())
+    router.all("/connect", middleware: BodyParser())
 
     // Basic GET request
     router.get("/hello", handler: getHello)
 
     // Basic POST request
     router.post("/hello", handler: postHello)
+    router.post("/salut", handler: postHello)
 
     // JSON Get request
     router.get("/json", handler: getJSON)
@@ -69,7 +74,6 @@ public class Controller {
 
     // Check token, GET request
     router.post("/connect", handler: postConnect)
-    router.get("/connect", handler: getHello)
   }
 
 
@@ -94,6 +98,21 @@ public class Controller {
       }
 
       return randomString
+  }
+
+  func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
+    if !redis.connected {
+
+        redis.connect(host: Auth_host, port: Auth_port) {(error: NSError?) in
+            if authenticate {
+                redis.auth(Auth_password, callback: callback)
+            } else {
+                callback(error)
+            }
+        }
+    } else {
+        callback(nil)
+    }
   }
 
   public func getHello(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
@@ -137,7 +156,7 @@ public class Controller {
     // Start framework redisError
     let redis = Redis()
     // Connect in local
-    redis.connect(host: Auth_host, port: Auth_port) { (redisError: NSError?) in
+    connectRedis(redis: redis) { (redisError: NSError?) in
         if let error = redisError {
             jsonResponse["code"].stringValue = "500"
             jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
@@ -178,27 +197,32 @@ public class Controller {
     Log.debug("POST - /connect route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
     
-    /*if let name = try request.readString() {
-      try response.status(.OK).send("Hello \(name), from Kitura-Starter!").end()
-    } else {
-      try response.status(.OK).send("Kitura-Starter received a POST request!").end()
-    }*/
+    // if let name = try request.readString() {
+    //   try response.status(.OK).send("Hello \(name), from Kitura-Starter!").end()
+    // } else {
+    //   try response.status(.OK).send("Kitura-Starter received a POST request!").end()
+    // }
+    print("POST /connecte reçut")
 
     guard let parsedBody = request.body else {
-        next()
-        return
+      print("POST /connect exist no body")
+      next()
+      return
     }
 
     var jsonResponse = JSON([:])
-
+    print("POST /connecte switch")
     switch(parsedBody) {
     case .json(let jsonBody):
+      print("POST /connecte case")
       let user = jsonBody["user"].string ?? ""
       let password = jsonBody["password"].string ?? ""
+      print("POST /connecte lecture json: \(user) : \(password)")
 
       let redis = Redis()
       redis.connect(host: Auth_host, port: Auth_port) { (redisError: NSError?) in
-        
+        print("POST /connecte connect redis OK")
+
         if let error = redisError {
           jsonResponse["code"].stringValue = "500"
           jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
@@ -236,6 +260,7 @@ public class Controller {
     default:
         break
     }
+    next()
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
