@@ -72,8 +72,11 @@ public class Controller {
     // Check token, GET request
     router.get("/check/:token", handler: checkToken)
 
-    // Check token, GET request
+    // Connect user, POST request
     router.post("/connect", handler: postConnect)
+
+    // Disconnect user, POST request
+    router.post("/disconnect", handler: postDisconnect)
   }
 
 
@@ -197,11 +200,6 @@ public class Controller {
     Log.debug("POST - /connect route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
     
-    // if let name = try request.readString() {
-    //   try response.status(.OK).send("Hello \(name), from Kitura-Starter!").end()
-    // } else {
-    //   try response.status(.OK).send("Kitura-Starter received a POST request!").end()
-    // }
     print("POST /connecte reçut")
 
     guard let parsedBody = request.body else {
@@ -272,6 +270,77 @@ public class Controller {
       break
     }
     print("POST /connecte send response")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
+
+  public func postDisconnect(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+    Log.debug("POST - /disconnect route handler...")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    print("POST /disconnect")
+
+    guard let parsedBody = request.body else {
+      print("POST /disconnect exist no body")
+      next()
+      return
+    }
+
+    var jsonResponse = JSON([:])
+
+    switch(parsedBody) {
+    case .json(let jsonBody):
+
+      let user_redis = jsonBody["user"].string ?? ""
+      let token = jsonBody["token"].string ?? ""
+      print("POST /disconnect user \(user_redis) , token \(token)")
+
+      let redis = Redis()
+      connectRedis(redis: redis) { (redisError: NSError?) in
+
+        if let error = redisError {
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+        }
+
+        else
+        {
+          redis.get(token) { (u: RedisString?, redisError: NSError?) in
+
+            if let error = redisError {
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Erreur cmd redis get \(user_redis): \(error)"
+            }
+
+            else if let user = u {
+              print("POST /disconnect compare \(user.asString) == \(user_redis)")
+              if user.asString == user_redis {
+
+                redis.expire(token,inTime: (1 as TimeInterval)) { (ok: Bool?, redisError: NSError?) in
+                  if let error = redisError {
+                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["message"].stringValue = "Erreur cmd redis expire : \(error)"              
+                  }
+                  else {
+                    jsonResponse["code"].stringValue = "200"
+                    jsonResponse["message"].stringValue = "disconnect"              
+                  }
+                }
+              }
+              else {
+                jsonResponse["code"].stringValue = "500"
+                jsonResponse["message"].stringValue = "Invalide user"
+              }
+            }
+            else {
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Invalide token"
+            }
+          }
+        }
+      }
+    default:
+      print("POST /connecte json non trouvé")
+      break
+    }
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
