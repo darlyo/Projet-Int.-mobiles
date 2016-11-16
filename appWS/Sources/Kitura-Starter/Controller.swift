@@ -40,6 +40,7 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
+
 public class Controller {
 
   let router: Router
@@ -70,7 +71,9 @@ public class Controller {
     router.all("/*", middleware: BodyParser())
 
     // Connect user, POST request 
-    router.post("/app/messages", handler: postMessages)
+    router.post("/app/messages", handler: postMessages) //envoie les messages demander
+    router.post("/app/message", handler: postMessage) // enregistre le message
+    router.post("/app/mess/key", handler: postAugPop) // augmente la popularity d'un message
 
 
   }
@@ -372,6 +375,44 @@ public class Controller {
 
 
     jsonResponse["1"] = json
+
+    print("POST - /sigup \(jsonResponse.rawString)")
+    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
+
+  public func postMessage(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+    Log.debug("POST - /app/messages route handler...")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    
+    guard let parsedBody = request.body else {
+      next()
+      return
+    }
+
+    var jsonResponse = JSON([:])
+    
+    jsonResponse["code"].stringValue = "200"
+    jsonResponse["message"].stringValue = "message enregistré"
+
+    print("POST - /sigup \(jsonResponse.rawString)")
+    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
+
+  public func postAugPop(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+    Log.debug("POST - /app/messages route handler...")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    
+    guard let parsedBody = request.body else {
+      next()
+      return
+    }
+
+    var jsonResponse = JSON([:])
+    
+    jsonResponse["code"].stringValue = "200"
+    jsonResponse["message"].stringValue = "popularity message augmenter "
 
     print("POST - /sigup \(jsonResponse.rawString)")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
