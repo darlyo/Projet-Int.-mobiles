@@ -35,11 +35,18 @@ public class Controller {
   let router: Router
   let appEnv: AppEnv
 
-  let Auth_port = 6379 as Int32
-  let Auth_host = "localhost"
-  let Auth_password = "password"
-
   let authenticate = false
+
+  if authenticate {
+    let Auth_port = 15544 as Int32
+    let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
+    let Auth_password = "LTWCJWJPVKKGMUGZ"
+  }
+  else {
+    let Auth_port = 6379 as Int32
+    let Auth_host = "localhost"
+    let Auth_password = "password"
+  }
 
   var port: Int {
     get { return appEnv.port }
