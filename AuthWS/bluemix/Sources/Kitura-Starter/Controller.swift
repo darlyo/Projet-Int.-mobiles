@@ -164,7 +164,7 @@ public class Controller {
     // Connect in local
     connectRedis(redis: redis) { (redisError: NSError?) in
       if let error = redisError {
-        jsonResponse["code"].stringValue = "500"
+        jsonResponse["code"].stringValue = "503"
         jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
 
         //response.send("error")
@@ -175,16 +175,16 @@ public class Controller {
         // set a key
         redis.ttl(token) { (time: TimeInterval?, redisError: NSError?) in
           if let error = redisError {
-            jsonResponse["code"].stringValue = "500"
+            jsonResponse["code"].stringValue = "401"
             jsonResponse["message"].stringValue = "Erreur cmd redis ttl: \(error)"                
           }
           else if time! == -1 {
-            jsonResponse["code"].stringValue = "500"
+            jsonResponse["code"].stringValue = "408"
             jsonResponse["message"].stringValue = "token invalide, time expire"
             //response.send("token invalide, time expire")
           }
           else if time! == -2 {
-            jsonResponse["code"].stringValue = "500"
+            jsonResponse["code"].stringValue = "408"
             jsonResponse["message"].stringValue = "token inconnu"
             //response.send("token : \(token) invalide")
           }
@@ -218,7 +218,7 @@ public class Controller {
       connectRedis(redis: redis) { (redisError: NSError?) in
 
         if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
+          jsonResponse["code"].stringValue = "503"
           jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
 
@@ -227,7 +227,7 @@ public class Controller {
           redis.get(user) { (pass: RedisString?, redisError: NSError?) in
 
             if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "401"
               jsonResponse["message"].stringValue = "Erreur cmd redis get \(user): \(error)"
             }
             else if let mdp = pass {
@@ -235,7 +235,7 @@ public class Controller {
                 let rand = random()
                 redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
                   if let error = redisError {
-                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["code"].stringValue = "401"
                     jsonResponse["message"].stringValue = "Erreur cmd redis set token: \(error)"              
                   }
                   else {
@@ -245,12 +245,12 @@ public class Controller {
                 }
               }
               else {
-                jsonResponse["code"].stringValue = "500"
+                jsonResponse["code"].stringValue = "401"
                 jsonResponse["message"].stringValue = "Invalide password"
               }
             }
             else {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "401"
               jsonResponse["message"].stringValue = "Invalide user"
             }
           }
@@ -285,7 +285,7 @@ public class Controller {
       connectRedis(redis: redis) { (redisError: NSError?) in
 
         if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
+          jsonResponse["code"].stringValue = "503"
           jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
 
@@ -294,7 +294,7 @@ public class Controller {
           redis.get(token) { (u: RedisString?, redisError: NSError?) in
 
             if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "401"
               jsonResponse["message"].stringValue = "Erreur cmd redis get \(user_redis): \(error)"
             }
 
@@ -303,7 +303,7 @@ public class Controller {
 
                 redis.expire(token,inTime: (1 as TimeInterval)) { (ok: Bool?, redisError: NSError?) in
                   if let error = redisError {
-                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["code"].stringValue = "408"
                     jsonResponse["message"].stringValue = "Erreur cmd redis expire : \(error)"              
                   }
                   else {
@@ -313,12 +313,12 @@ public class Controller {
                 }
               }
               else {
-                jsonResponse["code"].stringValue = "500"
+                jsonResponse["code"].stringValue = "401"
                 jsonResponse["message"].stringValue = "Invalide user"
               }
             }
             else {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "408"
               jsonResponse["message"].stringValue = "Invalide token"
             }
           }
@@ -353,7 +353,7 @@ public class Controller {
       connectRedis(redis: redis) { (redisError: NSError?) in
 
         if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
+          jsonResponse["code"].stringValue = "503"
           jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
 
@@ -362,7 +362,7 @@ public class Controller {
           redis.set(user, value:password,exists:false) { (ok: Bool?, redisError: NSError?) in
 
             if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "401"
               jsonResponse["message"].stringValue = "Erreur cmd redis set \(user): \(error)"
             }
             else if ok == true {                
@@ -370,7 +370,7 @@ public class Controller {
                 jsonResponse["message"].stringValue = "user create"              
             }
             else {
-              jsonResponse["code"].stringValue = "500"
+              jsonResponse["code"].stringValue = "401"
               jsonResponse["message"].stringValue = "user already exist"              
             }
           }

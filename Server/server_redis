@@ -16,3 +16,7 @@ Dans notre cas, nous allons avoir besoin de deux redis, donc nous allons lancer 
 ./redis-server --port 6380
 
 optionnel : --protected-mode no
+
+in redis.conf (/etc/redis) add :
+
+PUBLISH channel
