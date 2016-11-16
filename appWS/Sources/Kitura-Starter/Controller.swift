@@ -45,19 +45,16 @@ public class Controller {
 
   let router: Router
   let appEnv: AppEnv
-  
+
   let authenticate = false
 
-  if authenticate {
-    let Auth_port = 15544 as Int32
-    let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
-    let Auth_password = "LTWCJWJPVKKGMUGZ"
-  }
-  else {
-    let Auth_port = 6379 as Int32
-    let Auth_host = "localhost"
-    let Auth_password = "password"
-  }
+  // let Auth_port = 6379 as Int32
+  // let Auth_host = "localhost"
+  // let Auth_password = "password"
+
+  let Auth_port = 15544 as Int32
+  let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
+  let Auth_password = "LTWCJWJPVKKGMUGZ"
 
   var port: Int {
     get { return appEnv.port }
@@ -68,6 +65,7 @@ public class Controller {
   }
 
   init() throws {
+
     appEnv = try CloudFoundryEnv.getAppEnv()
 
     // All web apps need a Router instance to define routes
@@ -135,7 +133,6 @@ public class Controller {
 
     // Start framework redisError
     let redis = Redis()
-    // Connect in local
     connectRedis(redis: redis) { (redisError: NSError?) in
       if let error = redisError {
         jsonResponse["code"].stringValue = "500"
@@ -417,9 +414,52 @@ public class Controller {
     }
 
     var jsonResponse = JSON([:])
+    switch(parsedBody) {
+    case .json(let jsonBody):
+      let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
+
+      let redis = Redis()
+      connectRedis(redis: redis) { (redisError: NSError?) in
+        if let error = redisError {
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+        }
+
+        else {
+          redis.hget(idMessage, field:"popularity") {(value: RedisString?, redisError: NSError?) in
+            if let error = redisError {
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Key Erreur : \(error)"
+            }
+
+            if let v = value {
+              var newVal = (v.asInteger + 1)
+              redis.hset(idMessage, field:"popularity", value: String(newVal)) {(ok: Bool?, redisError: NSError?) in
+                if let error = redisError {
+                  jsonResponse["code"].stringValue = "500"
+                  jsonResponse["message"].stringValue = "Key Erreur : \(error)"
+                }
+                else {
+                  jsonResponse["code"].stringValue = "200"
+                  jsonResponse["message"].stringValue = "popularity OK"
+                  jsonResponse["popularity"].stringValue = "\(newVal)"
+                }
+              }
+            }
+            else {
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Key incorrect"
+            }
+          }
+        }
+      }
+    default:
+      jsonResponse["code"].stringValue = "404"
+      jsonResponse["message"].stringValue = "key required"
+      break
+    }
     
-    jsonResponse["code"].stringValue = "200"
-    jsonResponse["message"].stringValue = "popularity message augmenter "
+    
 
     print("POST - /app/mess/key \(jsonResponse.rawString)")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
