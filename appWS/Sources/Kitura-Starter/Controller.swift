@@ -199,7 +199,7 @@ public class Controller {
       else{
         //On récupère les 50 dernière messages
         var j = 0
-        for i in stride(from: 0,to: 50, by: 1){
+        for i in stride(from: 1,to: 50, by: 1){
           redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
             if let error = redisError {        
               jsonResponse["code"].stringValue = "500"
@@ -270,6 +270,55 @@ public class Controller {
       return
     }
 
+    var jsonResponse = JSON([:])
+
+    switch(parsedBody) {
+    case .json(let jsonBody):
+      let longitude = jsonBody["longitude"].string ?? ""
+      let latitude = jsonBody["latitude"].string ?? ""
+      let date = jsonBody["date"].string ?? ""
+      let hours = jsonBody["hours"].string ?? ""
+      let topic = jsonBody["topic"].string ?? ""
+
+      let redis = Redis()
+      connectRedis(redis: redis) { (redisError: NSError?) in
+        if let error = redisError {
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+        }
+        else{
+          redis.incr("nb"){(value : Int?, redisError: NSError?) in
+            if let error = redisError {
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Erreur redis cmd incr: \(error)"
+            }
+            else if let nb = value {
+              redis.hmset(String(nb), fieldValuePairs: ("longitude",longitude),("latitude",latitude),("date",date),("hours",hours),("topic",topic),("popularity","0")) {(ok : Bool, redisError: NSError?) in 
+                if let error = redisError {
+                  jsonResponse["code"].stringValue = "500"
+                  jsonResponse["message"].stringValue = "Erreur redis cmd hmset: \(error)"
+                }else {
+                  jsonResponse["code"].stringValue = "200"
+                  jsonResponse["message"].stringValue = "\(nb)"
+                  redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
+                    if let error = redisError {
+                      print("erreur publish \(error)")
+                    }else {
+                      print("publish ok")
+                    }
+                  }
+                }
+              }
+            }
+          }
+          
+        }
+      }  
+    default:
+      jsonResponse["code"].stringValue = "400"
+      jsonResponse["message"].stringValue = "JSON required"
+      break
+    }
     // print("tentative publish")
     // redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
     //   if let error = redisError {
@@ -278,11 +327,7 @@ public class Controller {
     //     print("publish ok")
     //   }
     // }
-
-    var jsonResponse = JSON([:])
     
-    jsonResponse["code"].stringValue = "200"
-    jsonResponse["message"].stringValue = "message enregistré"
 
     print("POST - /app/message \(jsonResponse.rawString)")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
