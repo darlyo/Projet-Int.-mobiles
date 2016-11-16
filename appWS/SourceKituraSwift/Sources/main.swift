@@ -2,10 +2,18 @@ import Kitura
 import SwiftRedis
 import SwiftyJSON
 import Foundation
+import LoggerAPI
+import HeliumLogger
 
 
 // Create a new router
 let router = Router()
+Log.logger = HeliumLogger()
+router.all("/", middleware: BodyParser())
+let Auth_port = 6379 as Int32
+let Auth_host = "localhost"
+let Auth_password = "password"
+let authenticate = false
 
 struct MyVariablesGlobale { //Seulement local 
     static var nbkeys = [Int]()  //nombre de clé totale pour les messages postés
@@ -20,8 +28,6 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
-
-
 // func JSONStringify(value: AnyObject, prettyPrinted: Bool = false) -> String {
 //     var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
 //     if NSJSONSerialization.isValidJSONObject(value) {
@@ -34,89 +40,52 @@ extension FloatingPoint {
 //     return ""
 // }
 
-//faire le calcul pour la longitude/latitude  
-    public func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Float {
+//calcul with longitude latitude  
+    public func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Double {
 
         //Convertir les données en float 
         //let latitudeA_deg_float = (latitudeA_degre as NSString).floatValue
-        let latitudeA_deg_float = Float(latitudeA_degre)
-        let longitudeA_deg_float = Float(longitudeA_degre)
-        let latitudeB_deg_float = Float(latitudeB_degre)
-        let longitudeB_deg_float = Float(longitudeB_degre)
+        let latitudeA_deg_float = Double(latitudeA_degre)
+        let longitudeA_deg_float = Double(longitudeA_degre)
+        let latitudeB_deg_float = Double(latitudeB_degre)
+        let longitudeB_deg_float = Double(longitudeB_degre)
 
         //Convertir les données de degrés en radian 
-        let latitudeA = Float(latitudeA_deg_float!).degreesToRadians
-        let longitudeA = Float(longitudeA_deg_float!).degreesToRadians
-        let latitudeB = Float(latitudeB_deg_float!).degreesToRadians
-        let longitudeB = Float(longitudeB_deg_float!).degreesToRadians
+        let latitudeA = Double(latitudeA_deg_float!).degreesToRadians
+        let longitudeA = Double(longitudeA_deg_float!).degreesToRadians
+        let latitudeB = Double(latitudeB_deg_float!).degreesToRadians
+        let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
 
-        var RayonTerre : Float
+        var RayonTerre : Double
         RayonTerre = 63780000 //Rayon de la terre en mètre
         //var resultDistance: Float
 
-        let distanceResult = RayonTerre * (3.14159265/2 - asin(sin(latitudeA) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
+        let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
 
-        return distanceResult
+        return distanceResult/10000
     }
 
 
-// extension NSDate
-// {
-//     convenience
-//       init(dateString:String) {
-//       let dateStringFormatter = NSDateFormatter()
-//       dateStringFormatter.dateFormat = "yyyy-MM-dd"
-//       dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-//       let d = dateStringFormatter.dateFromString(dateString)!
-//       self.init(timeInterval:0, sinceDate:d)
-//     }
-//  }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////// Connection to BDD Redis
+/////Connect to BDD Redis
 let redis = Redis()
 
-redis.connect(host: "", port: 6379) { (redisError: NSError?) in   
-    if let error = redisError {
-        print(error)
-    }
-    else {
-        print("Connected to Redis")
-        // set a key
-        redis.set("Redis", value: "on Swift") { (result: Bool, redisError: NSError?) in
-            if let error = redisError {
-                print(error)
-            }
-            // get the same key
-            redis.get("Redis") { (string: RedisString?, redisError: NSError?) in
-                if let error = redisError {
-                    print(error)
-                }
-                else if let string = string?.asString {
-                    print("Redis \(string)")
-                }
+func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
+    if !redis.connected {
+
+        redis.connect(host: Auth_host, port: Auth_port) {(error: NSError?) in
+            if authenticate {
+                redis.auth(Auth_password, callback: callback)
+            } else {
+                callback(error)
             }
         }
+    } else {
+        callback(nil)
     }
-}
+  }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Test
 
-// Handle HTTP GET requests to /
-// router.get("/app") {
-//  redis.connect(host: "", port: 6379)
-//     request, response, next in
-//     response.send("Hello, World!")
-//     next()
-// }
-
-// router.get("/app/:name") { request, response, _ in
-//     let name = request.parameters["name"] ?? ""
-//     try response.send("Hello \(name)").end()
-// }
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-router.get("/app/message") { request, response, next in //Renvoyer les informations au client android
+router.post("/app/messages") { request, response, next in //Renvoyer les informations au client android
     guard let parsedBody = request.body else {
         next()
         return 
@@ -125,7 +94,7 @@ router.get("/app/message") { request, response, next in //Renvoyer les informati
     var longitudeMobile = ""
     var latitudeMobile = ""
     var radiusMobile = ""
-    var dateMobile = ""
+    //var dateMobile = ""
     var hoursMobile = ""
 
     switch(parsedBody) {
@@ -133,7 +102,7 @@ router.get("/app/message") { request, response, next in //Renvoyer les informati
             longitudeMobile = jsonBody["longitude"].string ?? ""
             latitudeMobile = jsonBody["latitude"].string ?? ""
             radiusMobile = jsonBody["radius"].string ?? ""
-            dateMobile = jsonBody["date"].string ?? ""
+            //dateMobile = jsonBody["date"].string ?? ""
             hoursMobile = jsonBody["hours"].string ?? ""
 
     default:
@@ -163,32 +132,32 @@ router.get("/app/message") { request, response, next in //Renvoyer les informati
             case .Array(let responses):
                 for idx in stride(from: 0, to: responses.count-1, by: 12) {
                     switch(responses[idx]) {
-                        case .StringValue(let longitude):
+                        case .response["longitude"]:
                         
                             responses[idx+1].StringValue(valueLongitude)
                             json["longitude"].StringValue = valueLongitude
                             
-                        case .StringValue(let latitude):
+                        case .response["latitude"]:
                         
                             responses[idx+1].StringValue(valueLatitude)
                             json["latitude"].StringValue = valueLatitude
                                
-                        case .StringValue(let popularity):
+                        case .response["popularity"]:
 
                             responses[idx+1].StringValue(valuePopularity)
                             json["popularity"].StringValue = valuePopularity
                                 
-                        case .StringValue(let date):
+                        case .response["date"]:
 
                             responses[idx+1].StringValue(valueDate)
                             json["date"].StringValue = valueDate
                                 
-                        case .StringValue(let hours):
+                        case .response["hours"]:
 
                             responses[idx+1].StringValue(valueHours)
                             json["hours"].StringValue = valueHours
                                         
-                        case .StringValue(let topic):
+                        case .response["topic"]:
 
                             responses[idx+1].StringValue(valueTopic)
                             json["topic"].StringValue = valueTopic
@@ -199,42 +168,24 @@ router.get("/app/message") { request, response, next in //Renvoyer les informati
                             error = self.createUnexpectedResponseError(response)
                     }
                 }
-                let radiusFloat = Float(radiusMobile) //Convertir le radius de string -> float valeur unité KM
+                let radiusFloat = Double(radiusMobile) //Convertir le radius de string -> float valeur unité KM
                 //Récupérer les éléments de chaque message en json 
-                var resultDistance: Float
+                var resultDistance: Double
 
                 let valueLat = json["latitude"].string
                 let valueLongt = json["longitude"].string
 
                 resultDistance = Distance(latitudeA_degre: latitudeMobile, longitudeA_degre: longitudeMobile, latitudeB_degre: valueLat!, longitudeB_degre: valueLongt!) //Appel de la fonction distance
-                if resultDistance < radiusFloat! / 1000 {  //Comparaison de la distance entre les deux points et le radius
+                if resultDistance < radiusFloat!  {  //Comparaison de la distance entre les deux points et le radius
 
-
+                    jsonGlobal[i] = json  //Incrementer le message json dans le jsonGlobal
                 }
-
-                    // let jsonObject: [AnyObject] = [
-                    //     ["name": "John", "age": 21],
-                    //     ["name": "Bob", "age": 35],
-                    
-
-                    //jsonGlobal.append(json) 
-                    //jsonGlobal["\(i)"].append(json) 
-            
 
             default:
                 break    
             }
         }
     }
-    
-    //Renvoyer le jsonGlobal au client
-
-    jsonResponse["code"].stringValue = "400"
-    jsonResponse["message"].stringValue = "Error"
-
-    jsonResponse["code"].stringValue = "200"
-    jsonResponse["message"].stringValue = "OK"
-      
 
 }
     

@@ -122,7 +122,7 @@ paths:
               $ref: '#/definitions/Error500'
           
   /app/popularity/key:
-    post:
+    put:
       description: The customer shares the topic of the message
       parameters:
         - name: key
