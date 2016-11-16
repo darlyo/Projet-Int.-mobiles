@@ -48,13 +48,13 @@ public class Controller {
 
   let authenticate = false
 
-  // let Auth_port = 6379 as Int32
-  // let Auth_host = "localhost"
-  // let Auth_password = "password"
+  let Auth_port = 6379 as Int32
+  let Auth_host = "localhost"
+  let Auth_password = "password"
 
-  let Auth_port = 15544 as Int32
-  let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
-  let Auth_password = "LTWCJWJPVKKGMUGZ"
+  // let Auth_port = 15544 as Int32
+  // let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
+  // let Auth_password = "LTWCJWJPVKKGMUGZ"
 
   var port: Int {
     get { return appEnv.port }
@@ -122,239 +122,6 @@ public class Controller {
     }
   }
 
-  public func checkToken(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("GET - /check/:token route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-
-    let token = request.parameters["token"] ?? ""
-    
-    var jsonResponse = JSON([:])
-
-
-    // Start framework redisError
-    let redis = Redis()
-    connectRedis(redis: redis) { (redisError: NSError?) in
-      if let error = redisError {
-        jsonResponse["code"].stringValue = "500"
-        jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
-
-        //response.send("error")
-      }
-
-      else {
-        print("Connected to Redis")
-        // set a key
-        redis.ttl(token) { (time: TimeInterval?, redisError: NSError?) in
-          if let error = redisError {
-            jsonResponse["code"].stringValue = "500"
-            jsonResponse["message"].stringValue = "Erreur cmd redis ttl: \(error)"                
-          }
-          else if time! == -1 {
-            jsonResponse["code"].stringValue = "500"
-            jsonResponse["message"].stringValue = "token invalide, time expire"
-            //response.send("token invalide, time expire")
-          }
-          else if time! == -2 {
-            jsonResponse["code"].stringValue = "500"
-            jsonResponse["message"].stringValue = "token inconnu"
-            //response.send("token : \(token) invalide")
-          }
-          else{
-            jsonResponse["code"].stringValue = "200"
-            jsonResponse["message"].stringValue = "valide"
-            //response..status(.OK).send("Check OK, token valide, time remaning : \(time)")
-          }
-        }
-      }
-    }
-    try response.status(.OK).send(json: jsonResponse).end()
-  }
-
-  public func postConnect(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("POST - /connect route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    
-    guard let parsedBody = request.body else {
-      next()
-      return
-    }
-
-    var jsonResponse = JSON([:])
-    switch(parsedBody) {
-    case .json(let jsonBody):
-      let user = jsonBody["user"].string ?? ""
-      let password = jsonBody["password"].string ?? ""
-
-      let redis = Redis()
-      connectRedis(redis: redis) { (redisError: NSError?) in
-
-        if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
-          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
-        }
-
-        else
-        {
-          redis.get(user) { (pass: RedisString?, redisError: NSError?) in
-
-            if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Erreur cmd redis get \(user): \(error)"
-            }
-            else if let mdp = pass {
-              if mdp.asString == password {
-                let rand = random()
-                redis.set(String(rand),value: user,exists: false,expiresIn: (60000 as TimeInterval)){ (ok: Bool?, redisError: NSError?) in
-                  if let error = redisError {
-                    jsonResponse["code"].stringValue = "500"
-                    jsonResponse["message"].stringValue = "Erreur cmd redis set token: \(error)"              
-                  }
-                  else {
-                    jsonResponse["code"].stringValue = "200"
-                    jsonResponse["message"].stringValue = "\(rand)"              
-                  }
-                }
-              }
-              else {
-                jsonResponse["code"].stringValue = "500"
-                jsonResponse["message"].stringValue = "Invalide password"
-              }
-            }
-            else {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Invalide user"
-            }
-          }
-        }
-      }
-    default:
-      break
-    }
-    print("POST - /connect \(jsonResponse["message"].stringValue)")
-    Log.debug("POST - /connect \(jsonResponse["message"].stringValue)")
-    try response.status(.OK).send(json: jsonResponse).end()
-  }
-
-  public func postDisconnect(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("POST - /disconnect route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-
-    guard let parsedBody = request.body else {
-      next()
-      return
-    }
-
-    var jsonResponse = JSON([:])
-
-    switch(parsedBody) {
-    case .json(let jsonBody):
-
-      let user_redis = jsonBody["user"].string ?? ""
-      let token = jsonBody["token"].string ?? ""
-
-      let redis = Redis()
-      connectRedis(redis: redis) { (redisError: NSError?) in
-
-        if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
-          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
-        }
-
-        else
-        {
-          redis.get(token) { (u: RedisString?, redisError: NSError?) in
-
-            if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Erreur cmd redis get \(user_redis): \(error)"
-            }
-
-            else if let user = u {
-              if user.asString == user_redis {
-
-                redis.expire(token,inTime: (1 as TimeInterval)) { (ok: Bool?, redisError: NSError?) in
-                  if let error = redisError {
-                    jsonResponse["code"].stringValue = "500"
-                    jsonResponse["message"].stringValue = "Erreur cmd redis expire : \(error)"              
-                  }
-                  else {
-                    jsonResponse["code"].stringValue = "200"
-                    jsonResponse["message"].stringValue = "disconnect"              
-                  }
-                }
-              }
-              else {
-                jsonResponse["code"].stringValue = "500"
-                jsonResponse["message"].stringValue = "Invalide user"
-              }
-            }
-            else {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Invalide token"
-            }
-          }
-        }
-      }
-    default:
-      break
-    }
-    print("POST - /disconnect \(jsonResponse["message"].stringValue)")
-    Log.debug("POST - /disconnect \(jsonResponse["message"].stringValue)")
-    try response.status(.OK).send(json: jsonResponse).end()
-  }
-
-  public func postSignUp(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("POST - /signup route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    
-    guard let parsedBody = request.body else {
-      next()
-      return
-    }
-
-    var jsonResponse = JSON([:])
-
-    switch(parsedBody) {
-    case .json(let jsonBody):
-
-      let user = jsonBody["user"].string ?? ""
-      let password = jsonBody["password"].string ?? ""
-
-      let redis = Redis()
-      connectRedis(redis: redis) { (redisError: NSError?) in
-
-        if let error = redisError {
-          jsonResponse["code"].stringValue = "500"
-          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
-        }
-
-        else
-        {
-          redis.set(user, value:password,exists:false) { (ok: Bool?, redisError: NSError?) in
-
-            if let error = redisError {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "Erreur cmd redis set \(user): \(error)"
-            }
-            else if ok == true {                
-                jsonResponse["code"].stringValue = "200"
-                jsonResponse["message"].stringValue = "user create"              
-            }
-            else {
-              jsonResponse["code"].stringValue = "500"
-              jsonResponse["message"].stringValue = "user already exist"              
-            }
-          }
-        }
-      }
-    default:
-      break
-    }
-    print("POST - /sigup \(jsonResponse["message"].stringValue)")
-    Log.debug("POST - /sigup \(jsonResponse["message"].stringValue)")
-    try response.status(.OK).send(json: jsonResponse).end()
-  }
-
   public func postMessages(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
     Log.debug("POST - /app/messages route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
@@ -364,23 +131,96 @@ public class Controller {
       return
     }
 
+    var longitudeMobile = ""
+    var latitudeMobile = ""
+    var radiusMobile = ""
+    // var dateMobile = ""
+    // var hoursMobile = ""
+
+    switch(parsedBody) {
+    case .json(let jsonBody):
+      longitudeMobile = jsonBody["longitude"].string ?? ""
+      latitudeMobile = jsonBody["latitude"].string ?? ""
+      radiusMobile = jsonBody["radius"].string ?? ""
+      // dateMobile = jsonBody["date"].string ?? ""
+      // hoursMobile = jsonBody["hours"].string ?? ""
+
+    default:
+      break
+    }
+
+    print("longitudeMobile \(longitudeMobile)")
     var jsonResponse = JSON([:])
-    
-    jsonResponse["code"].stringValue = "200"
 
-    var json = JSON([:])
-    json["id"].stringValue = "10"
-    json["longitude"].stringValue = "10"
-    json["latitude"].stringValue = "10"
-    json["popularity"].stringValue = "10"
-    json["date"].stringValue = "10"
-    json["hours"].stringValue = "10"
-    json["topic"].stringValue = "10"
+    let redis = Redis()
+    connectRedis(redis: redis) { (redisError: NSError?) in
+      if let error = redisError {
+        jsonResponse["code"].stringValue = "500"
+        jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+      }
+      else{
+        //On récupère les 50 dernière messages
+        var j = 0
+        for i in stride(from: 0,to: 50, by: 1){
+          redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
+            if let error = redisError {        
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Erreur cmd redis hgetall: \(error)"
+            }
+            else if nil != responseRedis{
+              //print("responseRedis 0 : \(responseRedis["date"]))")
+              jsonResponse["code"].stringValue = "200"
 
+              var json = JSON([:])
+              var err = false
+              json["id"].stringValue = String(i)
 
-    jsonResponse["1"] = json
+              if let val = responseRedis["longitude"]{
+                json["longitude"].stringValue = val.asString
+              }else {
+                err = true
+              }
+              if let val = responseRedis["latitude"]{
+                json["latitude"].stringValue = val.asString
+              }else {
+                err = true
+              }
+              if let val = responseRedis["popularity"]{
+                json["popularity"].stringValue = val.asString
+              }else {
+                err = true
+              }
+              if let val = responseRedis["date"]{
+                json["date"].stringValue = val.asString
+              }else {
+                err = true
+              }
+              if let val = responseRedis["hours"]{
+                json["hours"].stringValue = val.asString
+              }else {
+                err = true
+              }
+              if let val = responseRedis["topic"]{
+                json["topic"].stringValue = val.asString
+              }else {
+                err = true
+              }
 
-    print("POST - /sigup \(jsonResponse.rawString)")
+              if err == false {
+                print("message valide \(i) ")
+                jsonResponse[String(j)] = json
+                j += 1
+              }else {
+                print("erreur message invale \(i)")
+              }
+            }
+          }
+        }
+        
+      }
+    }
+
+    print("POST - /messages \(jsonResponse.rawString())")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
