@@ -206,12 +206,11 @@ public class Controller {
                 err = true
               }
 
+              //write in JSON the message if valide
               if err == false {
                 print("message valide \(i) ")
                 jsonResponse[String(j)] = json
                 j += 1
-              }else {
-                print("erreur message invale \(i)")
               }
             }
           }
@@ -220,7 +219,7 @@ public class Controller {
       }
     }
 
-    print("POST - /messages \(jsonResponse.rawString())")
+    print("POST - /messages ")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
