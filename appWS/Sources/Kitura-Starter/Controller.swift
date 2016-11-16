@@ -120,29 +120,29 @@ public class Controller {
 
   }
 
-  func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Float {
+  public func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Double {
 
     //Convertir les données en float 
     //let latitudeA_deg_float = (latitudeA_degre as NSString).floatValue
-    let latitudeA_deg_float = Float(latitudeA_degre)
-    let longitudeA_deg_float = Float(longitudeA_degre)
-    let latitudeB_deg_float = Float(latitudeB_degre)
-    let longitudeB_deg_float = Float(longitudeB_degre)
+    let latitudeA_deg_float = Double(latitudeA_degre)
+    let longitudeA_deg_float = Double(longitudeA_degre)
+    let latitudeB_deg_float = Double(latitudeB_degre)
+    let longitudeB_deg_float = Double(longitudeB_degre)
 
     //Convertir les données de degrés en radian 
-    let latitudeA = Float(latitudeA_deg_float!).degreesToRadians
-    let longitudeA = Float(longitudeA_deg_float!).degreesToRadians
-    let latitudeB = Float(latitudeB_deg_float!).degreesToRadians
-    let longitudeB = Float(longitudeB_deg_float!).degreesToRadians
+    let latitudeA = Double(latitudeA_deg_float!).degreesToRadians
+    let longitudeA = Double(longitudeA_deg_float!).degreesToRadians
+    let latitudeB = Double(latitudeB_deg_float!).degreesToRadians
+    let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
 
-    var RayonTerre : Float
-    RayonTerre = 63780 //Rayon de la terre en km
+    var RayonTerre : Double
+    RayonTerre = 63780 //Rayon de la terre en mètre
     //var resultDistance: Float
 
-    let distanceResult = RayonTerre * (3.14159265/2 - asin(sin(latitudeA) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
+    let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
 
     return distanceResult
-  }
+}
 
   func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
     if !redis.connected {
@@ -247,7 +247,7 @@ public class Controller {
               if err == false {
                 let radiusFloat = Float(radiusMobile) //Convertir le radius de string -> float valeur unité KM
                 //Récupérer les éléments de chaque message en json 
-                var resultDistance: Float
+                var resultDistance: Double
 
                 let valueLat = json["latitude"].string
                 let valueLongt = json["longitude"].string
