@@ -75,7 +75,6 @@ extension Redis {
       self.redisIntegerResponseHandler(response, callback: callback)
     }
   }
-
 }
 
 
@@ -137,7 +136,7 @@ public class Controller {
     let longitudeB = Float(longitudeB_deg_float!).degreesToRadians
 
     var RayonTerre : Float
-    RayonTerre = 63780000 //Rayon de la terre en mètre
+    RayonTerre = 63780 //Rayon de la terre en km
     //var resultDistance: Float
 
     let distanceResult = RayonTerre * (3.14159265/2 - asin(sin(latitudeA) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
@@ -187,7 +186,6 @@ public class Controller {
       break
     }
 
-    print("longitudeMobile \(longitudeMobile)")
     var jsonResponse = JSON([:])
 
     let redis = Redis()
@@ -197,6 +195,7 @@ public class Controller {
         jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
       }
       else{
+
         //On récupère les 50 dernière messages
         var j = 0
         for i in stride(from: 1,to: 50, by: 1){
@@ -246,9 +245,19 @@ public class Controller {
 
               //write in JSON the message if valide
               if err == false {
-                print("message valide \(i) ")
-                jsonResponse[String(j)] = json
-                j += 1
+                let radiusFloat = Float(radiusMobile) //Convertir le radius de string -> float valeur unité KM
+                //Récupérer les éléments de chaque message en json 
+                var resultDistance: Float
+
+                let valueLat = json["latitude"].string
+                let valueLongt = json["longitude"].string
+
+                resultDistance = Distance(latitudeA_degre: latitudeMobile, longitudeA_degre: longitudeMobile, latitudeB_degre: valueLat!, longitudeB_degre: valueLongt!) //Appel de la fonction distance
+                if resultDistance <= radiusFloat! {  //Comparaison de la distance entre les deux points et le radius
+                  print("message valide \(i) ")
+                  jsonResponse[String(j)] = json
+                  j += 1                
+                }
               }
             }
           }
