@@ -17,15 +17,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "Kitura-Starter",
-    targets: [
-      Target(name: "Kitura-Starter", dependencies: [])
-    ],
+    name: "AppWS",
     dependencies: [
       .Package(url: "https://github.com/IBM-Swift/Kitura.git", majorVersion: 1, minor: 1),
       .Package(url: "https://github.com/IBM-Swift/HeliumLogger.git", majorVersion: 1, minor: 1),
       .Package(url: "https://github.com/IBM-Swift/Swift-cfenv.git", majorVersion: 1, minor: 8),
       .Package(url: "https://github.com/IBM-Swift/SwiftyJSON.git", majorVersion: 15),
-      .Package(url: "https://github.com/IBM-Bluemix/cf-deployment-tracker-client-swift.git", majorVersion: 0, minor: 5)
+      .Package(url: "https://github.com/IBM-Bluemix/cf-deployment-tracker-client-swift.git", majorVersion: 0, minor: 5),
+      .Package(url: "https://github.com/IBM-Swift/Kitura-redis.git", majorVersion: 1, minor: 1)
     ],
     exclude: ["Makefile", "Package-Builder"])
