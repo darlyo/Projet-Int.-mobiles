@@ -30,6 +30,16 @@ import Glibc
 import Darwin.C
 #endif
 
+
+extension Int {
+    var degreesToRadians: Double { return Double(self) * .pi / 180 }
+    var radiansToDegrees: Double { return Double(self) * 180 / .pi }
+}
+extension FloatingPoint {
+    var degreesToRadians: Self { return self * .pi / 180 }
+    var radiansToDegrees: Self { return self * 180 / .pi }
+}
+
 public class Controller {
 
   let router: Router
@@ -56,20 +66,37 @@ public class Controller {
     router = Router()
 
     // Serve static content from "public"
-    router.all("/", middleware: StaticFileServer())
-    router.all("/", middleware: BodyParser())
+    router.all("/*", middleware: StaticFileServer())
+    router.all("/*", middleware: BodyParser())
 
-    // Check token, GET request
-    router.get("/check/:token", handler: checkToken)
+    // Connect user, POST request 
+    router.post("/app/messages", handler: postMessages)
 
-    // Connect user, POST request
-    router.post("/connect", handler: postConnect)
 
-    // Disconnect user, POST request
-    router.post("/disconnect", handler: postDisconnect)
+  }
 
-    // Disconnect user, POST request
-    router.post("/signup", handler: postSignUp)
+  func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Float {
+
+    //Convertir les données en float 
+    //let latitudeA_deg_float = (latitudeA_degre as NSString).floatValue
+    let latitudeA_deg_float = Float(latitudeA_degre)
+    let longitudeA_deg_float = Float(longitudeA_degre)
+    let latitudeB_deg_float = Float(latitudeB_degre)
+    let longitudeB_deg_float = Float(longitudeB_degre)
+
+    //Convertir les données de degrés en radian 
+    let latitudeA = Float(latitudeA_deg_float!).degreesToRadians
+    let longitudeA = Float(longitudeA_deg_float!).degreesToRadians
+    let latitudeB = Float(latitudeB_deg_float!).degreesToRadians
+    let longitudeB = Float(longitudeB_deg_float!).degreesToRadians
+
+    var RayonTerre : Float
+    RayonTerre = 63780000 //Rayon de la terre en mètre
+    //var resultDistance: Float
+
+    let distanceResult = RayonTerre * (3.14159265/2 - asin(sin(latitudeA) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
+
+    return distanceResult
   }
 
   func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
@@ -318,6 +345,36 @@ public class Controller {
     }
     print("POST - /sigup \(jsonResponse["message"].stringValue)")
     Log.debug("POST - /sigup \(jsonResponse["message"].stringValue)")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
+
+  public func postMessages(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+    Log.debug("POST - /app/messages route handler...")
+    response.headers["Content-Type"] = "text/plain; charset=utf-8"
+    
+    guard let parsedBody = request.body else {
+      next()
+      return
+    }
+
+    var jsonResponse = JSON([:])
+    
+    jsonResponse["code"].stringValue = "200"
+
+    var json = JSON([:])
+    json["id"].stringValue = "10"
+    json["longitude"].stringValue = "10"
+    json["latitude"].stringValue = "10"
+    json["popularity"].stringValue = "10"
+    json["date"].stringValue = "10"
+    json["hours"].stringValue = "10"
+    json["topic"].stringValue = "10"
+
+
+    jsonResponse["1"] = json
+
+    print("POST - /sigup \(jsonResponse.rawString)")
+    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 }
