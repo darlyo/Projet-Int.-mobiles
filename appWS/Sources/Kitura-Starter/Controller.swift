@@ -40,6 +40,44 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
+extension Redis {
+  func redisIntegerResponseHandler(_ response: RedisResponse, callback: (Int?, NSError?) -> Void) {
+    switch(response) {
+    case .IntegerValue(let num):
+        callback(Int(num), nil)
+    case .Nil:
+        callback(nil, nil)
+    case .Error(let error):
+        callback(nil, _: createError("Error: \(error)", code: 1))
+    default:
+        callback(nil, _: createUnexpectedResponseError(response))
+    }
+  }
+
+  func createUnexpectedResponseError(_ response: RedisResponse) -> NSError {
+    return createError("Unexpected result received from Redis \(response)", code: 2)
+  }
+
+  func createError(_ errorMessage: String, code: Int) -> NSError {
+    #if os(Linux)
+        let userInfo: [String: Any]
+    #else
+        let userInfo: [String: String]
+    #endif
+    userInfo = [NSLocalizedDescriptionKey: errorMessage]
+    return NSError(domain: "RedisDomain", code: code, userInfo: userInfo)
+  }
+
+  public func pub(_ channel: String, value: String, callback: (Int?, NSError?) -> Void) {
+      
+    var command = ["PUBLISH", channel, value]
+    issueCommandInArray(command) {(response: RedisResponse) in
+      self.redisIntegerResponseHandler(response, callback: callback)
+    }
+  }
+
+}
+
 
 public class Controller {
 
@@ -214,8 +252,7 @@ public class Controller {
               }
             }
           }
-        }
-        
+        } 
       }
     }
 
@@ -232,6 +269,15 @@ public class Controller {
       next()
       return
     }
+
+    // print("tentative publish")
+    // redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
+    //   if let error = redisError {
+    //     print("erreur publish \(error)")
+    //   }else {
+    //     print("publish ok")
+    //   }
+    // }
 
     var jsonResponse = JSON([:])
     
@@ -272,7 +318,7 @@ public class Controller {
             }
 
             if let v = value {
-              var newVal = (v.asInteger + 1)
+              let  newVal = (v.asInteger + 1)
               redis.hset(idMessage, field:"popularity", value: String(newVal)) {(ok: Bool?, redisError: NSError?) in
                 if let error = redisError {
                   jsonResponse["code"].stringValue = "500"
@@ -298,8 +344,6 @@ public class Controller {
       break
     }
     
-    
-
     print("POST - /app/mess/key \(jsonResponse.rawString)")
     //Log.debug("POST - /sigup \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
