@@ -39,7 +39,7 @@ public class Controller {
   let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
   let Auth_password = "LTWCJWJPVKKGMUGZ"
 
-  let authenticate = false
+  let authenticate = true
 
   var port: Int {
     get { return appEnv.port }
