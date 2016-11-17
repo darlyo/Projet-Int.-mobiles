@@ -35,7 +35,7 @@ public class Controller {
   let router: Router
   let appEnv: AppEnv
 
-  let authenticate = false
+  let authenticate = true
 
   // let Auth_port = 6379 as Int32
   // let Auth_host = "localhost"

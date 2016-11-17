@@ -83,14 +83,14 @@ public class Controller {
   let router: Router
   let appEnv: AppEnv
 
-  let authenticate = false
+  let authenticate = true
 
   let Auth_port = 15601 as Int32
   let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
   let Auth_password = "ZLAQLGVSVAGEZDCX"
 
   // let Auth_port = 15544 as Int32
-  // let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
+  // let Auth_host = "http://localhost"
   // let Auth_password = "LTWCJWJPVKKGMUGZ"
 
   var port: Int {
@@ -136,13 +136,14 @@ public class Controller {
     let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
 
     var RayonTerre : Double
-    RayonTerre = 6378 //Rayon de la terre en mètre
+    RayonTerre = 6378 
     //var resultDistance: Float
 
     let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
 
+
     return distanceResult
-}
+  }
 
   func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
     if !redis.connected {
@@ -215,7 +216,8 @@ public class Controller {
         print("rechcher de \(fromMsg) to \(maxMsg)")
         //On récupère les 50 dernière messages
         var j = 0
-        for i in stride(from: fromMsg,to: maxMsg, by: 1){
+
+        for i in stride(from: fromMsg,to: maxMsg+1, by: 1){
           redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
             if let error = redisError {        
               jsonResponse["code"].stringValue = "500"
@@ -228,6 +230,7 @@ public class Controller {
               var json = JSON([:])
               var err = false
               json["id"].stringValue = String(i)
+              print("responseRedis \(i) : \(responseRedis["date"]))")
 
               if let val = responseRedis["longitude"]{
                 json["longitude"].stringValue = val.asString
@@ -282,13 +285,13 @@ public class Controller {
       }
     }
 
-    print("POST - /messages ")
-    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    print("POST - /app/messages ")
+    Log.debug("POST - /app/messages \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
   public func postMessage(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("POST - /app/messages route handler...")
+    Log.debug("POST - /app/message route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
     
     guard let parsedBody = request.body else {
@@ -300,11 +303,14 @@ public class Controller {
 
     switch(parsedBody) {
     case .json(let jsonBody):
-      let longitude = jsonBody["longitude"].string ?? ""
-      let latitude = jsonBody["latitude"].string ?? ""
-      let date = jsonBody["date"].string ?? ""
-      let hours = jsonBody["hours"].string ?? ""
+      let longitude = jsonBody["longitude"].string ?? "0"
+      let latitude = jsonBody["latitude"].string ?? "0"
+      let date = jsonBody["date"].string ?? "1/1/2000"
+      let hours = jsonBody["hours"].string ?? "00:00"
       let topic = jsonBody["topic"].string ?? ""
+      let token = jsonBody["token"].string ?? "0"
+
+      // check token
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
@@ -312,26 +318,32 @@ public class Controller {
           jsonResponse["code"].stringValue = "500"
           jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
+
         else{
           redis.incr("nb"){(value : Int?, redisError: NSError?) in
             if let error = redisError {
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Erreur redis cmd incr: \(error)"
             }
+
             else if let nb = value {
               redis.hmset(String(nb), fieldValuePairs: ("longitude",longitude),("latitude",latitude),("date",date),("hours",hours),("topic",topic),("popularity","0")) {(ok : Bool, redisError: NSError?) in 
                 if let error = redisError {
                   jsonResponse["code"].stringValue = "500"
                   jsonResponse["message"].stringValue = "Erreur redis cmd hmset: \(error)"
-                }else {
+                }
+
+                else {
                   jsonResponse["code"].stringValue = "200"
                   jsonResponse["message"].stringValue = "\(nb)"
                   // let pub = "{\"contenu\": \"ceci est un test", "date_post": "8/11/2016", "latitude": "30.0", "longitude": "30.0"}'
                   let pub = "{\"contenu\": \"\(topic)\", \"date_post\": \"\(date)\", \"latitude\": \"\(latitude)\", \"longitude\": \"\(longitude)\"}"
+                  
                   redis.pub("App_BD",value:pub){(v : Int?, redisError: NSError?) in
                     if let error = redisError {
                       print("erreur publish \(error)")
-                    }else {
+                    }
+                    else {
                       print("publish ok")
                     }
                   }
@@ -347,18 +359,9 @@ public class Controller {
       jsonResponse["message"].stringValue = "JSON required"
       break
     }
-    // print("tentative publish")
-    // redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
-    //   if let error = redisError {
-    //     print("erreur publish \(error)")
-    //   }else {
-    //     print("publish ok")
-    //   }
-    // }
-    
 
     print("POST - /app/message \(jsonResponse.rawString)")
-    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    Log.debug("POST - /app/message \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 
@@ -418,7 +421,7 @@ public class Controller {
     }
     
     print("POST - /app/mess/key \(jsonResponse.rawString)")
-    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    Log.debug("POST - /pp/mess/key \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
   }
 }
