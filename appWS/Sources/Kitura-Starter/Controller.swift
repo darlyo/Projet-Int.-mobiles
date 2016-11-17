@@ -129,12 +129,14 @@ public class Controller {
     let longitudeA_deg_float = Double(longitudeA_degre)
     let latitudeB_deg_float = Double(latitudeB_degre)
     let longitudeB_deg_float = Double(longitudeB_degre)
-
+    print("Distance convert in double")
+    
     //Convertir les données de degrés en radian 
     let latitudeA = Double(latitudeA_deg_float!).degreesToRadians
     let longitudeA = Double(longitudeA_deg_float!).degreesToRadians
     let latitudeB = Double(latitudeB_deg_float!).degreesToRadians
     let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
+    print("Distance convert in Radian")
 
     var RayonTerre : Double
     RayonTerre = 6378 
@@ -142,7 +144,7 @@ public class Controller {
 
     let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
 
-
+    print("Distance entre A(\(longitudeA);\(latitudeA)) et B(\(longitudeB);\(latitudeB)) : \(distanceResult)")
     return distanceResult
   }
 
@@ -178,9 +180,9 @@ public class Controller {
 
     switch(parsedBody) {
     case .json(let jsonBody):
-      longitudeMobile = jsonBody["longitude"].string ?? ""
-      latitudeMobile = jsonBody["latitude"].string ?? ""
-      radiusMobile = jsonBody["radius"].string ?? ""
+      longitudeMobile = jsonBody["longitude"].string ?? "0"
+      latitudeMobile = jsonBody["latitude"].string ?? "0"
+      radiusMobile = jsonBody["radius"].string ?? "99999"
       // dateMobile = jsonBody["date"].string ?? ""
       // hoursMobile = jsonBody["hours"].string ?? ""
 
@@ -380,11 +382,15 @@ public class Controller {
     case .json(let jsonBody):
       let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
 
-      KituraRequest.request(.get, "http://localhost:8090/check/\(idMessage)").response {
-        request, response, data, error in
-        // var swiftString = NSString(data: data!, encoding: String.Encoding.utf8) as! String
-        // print("response request : \(swiftString)")
-      }
+      // KituraRequest.request(.get, "http://localhost:8090/check/\(idMessage)").response {
+      //   request, response, data, error in
+      //   if let d = data {
+      //     let s1 = String(data: data, encoding: NSASCIIStringEncoding)!
+      //     let s2 = String(data: data, encoding: NSISOLatin1StringEncoding)!
+      //     print("response request : \(s1)")
+      //     print("response request : \(s2)")
+      //   }
+      // }
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
