@@ -85,9 +85,9 @@ public class Controller {
 
   let authenticate = false
 
-  let Auth_port = 6379 as Int32
-  let Auth_host = "localhost"
-  let Auth_password = "password"
+  let Auth_port = 15601 as Int32
+  let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
+  let Auth_password = "ZLAQLGVSVAGEZDCX"
 
   // let Auth_port = 15544 as Int32
   // let Auth_host = "sl-eu-lon-2-portal.2.dblayer.com"
