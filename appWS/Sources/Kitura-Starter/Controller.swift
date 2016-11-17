@@ -70,7 +70,7 @@ extension Redis {
 
   public func pub(_ channel: String, value: String, callback: (Int?, NSError?) -> Void) {
       
-    var command = ["PUBLISH", channel, value]
+    let command = ["PUBLISH", channel, value]
     issueCommandInArray(command) {(response: RedisResponse) in
       self.redisIntegerResponseHandler(response, callback: callback)
     }
@@ -225,7 +225,7 @@ public class Controller {
               jsonResponse["code"].stringValue = "500"
               jsonResponse["message"].stringValue = "Erreur cmd redis hgetall: \(error)"
             }
-            else if nil != responseRedis{
+            else {
               //print("responseRedis 0 : \(responseRedis["date"]))")
               jsonResponse["code"].stringValue = "200"
 
