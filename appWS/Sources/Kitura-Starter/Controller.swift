@@ -136,7 +136,7 @@ public class Controller {
     let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
 
     var RayonTerre : Double
-    RayonTerre = 63780 //Rayon de la terre en mètre
+    RayonTerre = 6378 //Rayon de la terre en mètre
     //var resultDistance: Float
 
     let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
@@ -196,7 +196,7 @@ public class Controller {
       }
       else{
 
-        var maxMsg = 50
+        var maxMsg = 100
         var fromMsg = 1
         redis.get("nb") { (value: RedisString?, redisError: NSError?) in
 
@@ -206,7 +206,7 @@ public class Controller {
           }
           if let nb = value{
             maxMsg = nb.asInteger
-            fromMsg = maxMsg - 50
+            fromMsg = maxMsg - 100
             if fromMsg < 1{
               fromMsg = 1
             }
@@ -215,7 +215,7 @@ public class Controller {
         print("rechcher de \(fromMsg) to \(maxMsg)")
         //On récupère les 50 dernière messages
         var j = 0
-        for i in stride(from: 1,to: 50, by: 1){
+        for i in stride(from: fromMsg,to: maxMsg, by: 1){
           redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
             if let error = redisError {        
               jsonResponse["code"].stringValue = "500"
@@ -326,7 +326,9 @@ public class Controller {
                 }else {
                   jsonResponse["code"].stringValue = "200"
                   jsonResponse["message"].stringValue = "\(nb)"
-                  redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
+                  // let pub = "{\"contenu\": \"ceci est un test", "date_post": "8/11/2016", "latitude": "30.0", "longitude": "30.0"}'
+                  let pub = "{\"contenu\": \"\(topic)\", \"date_post\": \"\(date)\", \"latitude\": \"\(latitude)\", \"longitude\": \"\(longitude)\"}"
+                  redis.pub("App_BD",value:pub){(v : Int?, redisError: NSError?) in
                     if let error = redisError {
                       print("erreur publish \(error)")
                     }else {
