@@ -63,16 +63,6 @@ public class Controller {
     router.all("/", middleware: StaticFileServer())
     router.all("/", middleware: BodyParser())
 
-    // Basic GET request
-    router.get("/hello", handler: getHello)
-
-    // Basic POST request
-    router.post("/hello", handler: postHello)
-    router.post("/salut", handler: postHello)
-
-    // JSON Get request
-    router.get("/json", handler: getJSON)
-
     // Check token, GET request
     router.get("/check/:token", handler: checkToken)
 
@@ -123,35 +113,6 @@ public class Controller {
     } else {
         callback(nil)
     }
-  }
-
-  public func getHello(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("GET - /hello route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    let rand = generateToken()
-    try response.status(.OK).send("Hello from Kitura-Starter!  : \(rand)").end()
-  }
-
-  public func postHello(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("POST - /hello route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    if let name = try request.readString() {
-      try response.status(.OK).send("Hello \(name), from Kitura-Starter!").end()
-    } else {
-      try response.status(.OK).send("Kitura-Starter received a POST request!").end()
-    }
-  }
-
-  public func getJSON(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("GET - /json route handler...")
-    response.headers["Content-Type"] = "application/json; charset=utf-8"
-    var jsonResponse = JSON([:])
-    jsonResponse["framework"].stringValue = "Kitura"
-    jsonResponse["applicationName"].stringValue = "Kitura-Starter"
-    jsonResponse["company"].stringValue = "IBM"
-    jsonResponse["organization"].stringValue = "Swift @ IBM"
-    jsonResponse["location"].stringValue = "Austin, Texas"
-    try response.status(.OK).send(json: jsonResponse).end()
   }
 
   public func checkToken(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {

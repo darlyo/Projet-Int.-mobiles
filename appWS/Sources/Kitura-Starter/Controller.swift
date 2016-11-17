@@ -159,10 +159,6 @@ public class Controller {
     }
   }
 
-  func chekToken (token : String, callback: (Bool, NSError?) -> Void) {
-    
-  }
-
   public func postMessages(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
     Log.debug("POST - /app/messages route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
