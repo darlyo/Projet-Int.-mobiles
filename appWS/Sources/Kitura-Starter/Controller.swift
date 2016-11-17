@@ -16,6 +16,7 @@
 
 import Kitura
 import Foundation
+import KituraRequest
 
 import LoggerAPI
 import HeliumLogger
@@ -378,6 +379,12 @@ public class Controller {
     switch(parsedBody) {
     case .json(let jsonBody):
       let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
+
+      KituraRequest.request(.get, "http://localhost:8090/check/\(idMessage)").response {
+        request, response, data, error in
+        // var swiftString = NSString(data: data!, encoding: String.Encoding.utf8) as! String
+        // print("response request : \(swiftString)")
+      }
 
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
