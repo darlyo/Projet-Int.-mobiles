@@ -94,140 +94,183 @@ router.post("/app/messages") { request, response, next in //Send messages to and
 
     default:
         break
-    }
+    }//fin switch
     //Recupérer tous les messages via la BDD
     //Selon le nombre de clés on fait une boucle pour récupérer tous les messages 
+
     var jsonResponse = JSON([:])
-    //for nbkeys = 1; nbkeys <= 50; ++nbkeys {
-    for i in stride(from: 0, to: 50, by: 1){
-        redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
-            if let error = redisError {
-                response.send("Error")
-            }
 
-            let valueLongitude = ""
-            let valueLatitude = ""
-            let valuePopularity = ""
-            let valueDate = ""
-            let valueHours = ""
-            let valueTopic = ""
-            var json = JSON([:])
-            var jsonGlobal = JSON([:])
+    let redis = Redis()
+    connectRedis(redis: redis) { (redisError: NSError?) in
+        if let error = redisError {
+            jsonResponse["code"].stringValue = "500"
+            jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
+        }
+        else 
+        {
+            var maxMsg = 50
+            var fromMsg = 1
             
-            //Recuperer les resultats
-            switch(responseRedis) {
-            case .Array(let responses):
-                for idx in stride(from: 0, to: responses.count-1, by: 12) {
-                    switch(responses[idx]) {
-                        case .response["longitude"]:
-                        
-                            responses[idx+1].StringValue(valueLongitude)
-                            json["longitude"].StringValue = valueLongitude
-                            
-                        case .response["latitude"]:
-                        
-                            responses[idx+1].StringValue(valueLatitude)
-                            json["latitude"].StringValue = valueLatitude
-                               
-                        case .response["popularity"]:
+            redis.get("nb") { (value: RedisString?, redisError: NSError?) in
 
-                            responses[idx+1].StringValue(valuePopularity)
-                            json["popularity"].StringValue = valuePopularity
-                                
-                        case .response["date"]:
-
-                            responses[idx+1].StringValue(valueDate)
-                            json["date"].StringValue = valueDate
-                                
-                        case .response["hours"]:
-
-                            responses[idx+1].StringValue(valueHours)
-                            json["hours"].StringValue = valueHours
-                                        
-                        case .response["topic"]:
-
-                            responses[idx+1].StringValue(valueTopic)
-                            json["topic"].StringValue = valueTopic
-                                        
-                        case .Error(let err):
-                            error = self.createError("Error: \(err)", code: 1)
-                        default:
-                            error = self.createUnexpectedResponseError(response)
+                if let error = redisError {
+                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["message"].stringValue = "Erreur cmd redis get nb: \(error)"
+                }
+                
+                if let nb = value{
+                    maxMsg = nb.asInteger
+                    fromMsg = maxMsg - 50
+                    if fromMsg < 1{
+                      fromMsg = 1
                     }
                 }
-                let radiusFloat = Double(radiusMobile) //Convertir le radius de string -> float valeur unité KM
-                //Récupérer les éléments de chaque message en json 
-                var resultDistance: Double
-
-                let valueLat = json["latitude"].string
-                let valueLongt = json["longitude"].string
-
-                resultDistance = Distance(latitudeA_degre: latitudeMobile, longitudeA_degre: longitudeMobile, latitudeB_degre: valueLat!, longitudeB_degre: valueLongt!) //Appel de la fonction distance
-                if resultDistance < radiusFloat!  {  //Comparaison de la distance entre les deux points et le radius
-
-                    jsonGlobal[i] = json  //Incrementer le message json dans le jsonGlobal
-                }
-
-            default:
-                break    
             }
-        }
-    }
+            print("find of \(fromMsg) to \(maxMsg)")
+            
+            //On récupère les 50 dernière messages
+            var j = 0
+            for i in stride(from: 1,to: 50, by: 1){
+                
+                redis.hgetall(String(i)) {(responseRedis:[String: RedisString], redisError: NSError?) in
+                
+                    if let error = redisError {        
+                        jsonResponse["code"].stringValue = "500"
+                        jsonResponse["message"].stringValue = "Erreur cmd redis hgetall: \(error)"
+                    }
+                    else 
+                    {
 
+                        jsonResponse["code"].stringValue = "200"
+
+                        var json = JSON([:])
+                        var err = false
+                        json["id"].stringValue = String(i)
+
+                        if let val = responseRedis["longitude"]{
+                            json["longitude"].stringValue = val.asString
+                        }
+                        else {
+                            err = true
+                        }
+                        if let val = responseRedis["latitude"]{
+                            json["latitude"].stringValue = val.asString
+                        }
+                        else {
+                            err = true
+                        }
+                        if let val = responseRedis["popularity"]{
+                            json["popularity"].stringValue = val.asString
+                        }else {
+                            err = true
+                        }
+                        if let val = responseRedis["date"]{
+                            json["date"].stringValue = val.asString
+                        }else {
+                            err = true
+                        }
+                        if let val = responseRedis["hours"]{
+                            json["hours"].stringValue = val.asString
+                        }else {
+                            err = true
+                        }
+                        if let val = responseRedis["topic"]{
+                            json["topic"].stringValue = val.asString
+                        }else {
+                            err = true
+                        }        
+
+                        if err == false {
+                            let radiusFloat = Double(radiusMobile) //Convertir le radius de string -> float valeur unité KM
+                            //Récupérer les éléments de chaque message en json 
+                            var resultDistance: Double
+
+                            let valueLat = json["latitude"].string
+                            let valueLongt = json["longitude"].string
+
+                            resultDistance = Distance(latitudeA_degre: latitudeMobile, longitudeA_degre: longitudeMobile, latitudeB_degre: valueLat!, longitudeB_degre: valueLongt!) //Appel de la fonction distance
+                            if resultDistance <= radiusFloat! {  //Comparaison de la distance entre les deux points et le radius
+                                print("message valide \(i) ")
+                                jsonResponse[String(j)] = json
+                                j += 1
+                            }
+                        }
+                    }//fin else
+                }//fin redis hgetall
+            }//fin for
+        }//fin else
+    }//fin connect redis 
+    print("POST - /messages ")
+    //Log.debug("POST - /sigup \(jsonResponse.rawString)")
+    try response.status(.OK).send(json: jsonResponse).end()
 }
-    
+
+//////////////////////////////////////////////////////////////////////////////////////////
 
 router.post("/app/message") { request, response, next in //Le mobile android poste un nouveau message
     guard let parsedBody = request.body else {
         next()
         return
     }
+
     var jsonResponse = JSON([:])
-    //Recuperer le nombre de clé disponible dans la BDD
-    var keys = 0
-    redis.exists(String(keys)) {( nb: Int? , redisError: NSError?) in
+
+    switch(parsedBody) {
+    case .json(let jsonBody):
+      let longitude = jsonBody["longitude"].string ?? ""
+      let latitude = jsonBody["latitude"].string ?? ""
+      let date = jsonBody["date"].string ?? ""
+      let hours = jsonBody["hours"].string ?? ""
+      let topic = jsonBody["topic"].string ?? ""
+
+
+    let redis = Redis()
+      connectRedis(redis: redis) { (redisError: NSError?) in
         if let error = redisError {
-            jsonResponse["code"].stringValue = "400"
-            jsonResponse["message"].stringValue = "Error : \(error)" 
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
-        else if let nbKeys = nb {
 
-        var newKey = 0
-        var longit = ""
-        var latit = ""
-        var pop = ""
-        var d = ""
-        var h = ""
-        var top = ""
-        switch(parsedBody) {
-        case .json(let jsonBody):
-                longit = jsonBody["longitude"].string ?? ""
-                latit = jsonBody["latitude"].string ?? ""
-                pop = jsonBody["popularity"].string ?? ""
-                d = jsonBody["date"].string ?? ""
-                h = jsonBody["hours"].string ?? ""
-                top = jsonBody["topic"].string ?? ""
-
-
-        default:
-            break
-
-        }
-    
-        newKey = nbKeys + 1; //variable pour attribuer un nombre pour la clé du nouveau message
-        //Envoyer le nouveau message à la BDD 
-        //redis.hmset(newKey, fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?,redisError: NSError?) in
-        redis.hmset(String(newKey), fieldValuePairs: ("longitude", longit), ("latitude", latit), ("popularity", pop), ("date", d), ("hours", h), ("topic", top)) {(result: Bool?, redisError: NSError?) in
+        else {
+          redis.incr("nb"){(value : Int?, redisError: NSError?) in
             if let error = redisError {
-                jsonResponse["code"].stringValue = "400"
-                jsonResponse["message"].stringValue = "Error : \(error)"
+              jsonResponse["code"].stringValue = "500"
+              jsonResponse["message"].stringValue = "Erreur redis cmd incr: \(error)"
             }
-        }
+            else if let nb = value {
+                
+                redis.hmset(String(nb), fieldValuePairs: ("longitude",longitude),("latitude",latitude),("date",date),("hours",hours),("topic",topic),("popularity","0")) {(ok : Bool, redisError: NSError?) in 
+                        
+                if let error = redisError {
+                    jsonResponse["code"].stringValue = "500"
+                    jsonResponse["message"].stringValue = "Erreur redis cmd hmset: \(error)"
+                }
+                else {
+                    jsonResponse["code"].stringValue = "200"
+                    jsonResponse["message"].stringValue = "\(nb)"
+                        
+                    redis.pub("app/messages",value:"un publish"){(v : Int?, redisError: NSError?) in
+                        if let error = redisError {
+                            print("erreur publish \(error)")
+                        }
+                        else {
+                            
+                            print("publish ok")
+                        }
+                    }//fin redis publish
+                }//Fin else
+                }//Fin redis Hmset
+            }//fin else if   
+          }//fin redis incr
+          
+        }//fin else
+      }//Fin redis connect  
+      default:
+      jsonResponse["code"].stringValue = "400"
+      jsonResponse["message"].stringValue = "JSON required"
+      break
+    }//fin switch
 
-        next()
-
-        }
-    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -241,23 +284,54 @@ router.post("app/mess/key") { request, response, next in
     var jsonResponse = JSON([:])
     switch(parsedBody) {
     case .json(let jsonBody):
-        let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
-         redis.hincr(idMessage, field: "popularity", by: 1) {(value: Int?, redisError: NSError?) in//Incrémenter la valeur de la pop en fonction de l'ID du topic
-            //Faire un hget pour voir la popularité de la clé 
-            //Faire un hset pour incrémenter la popularité de la clé 
-            if let error = redisError {
-                jsonResponse["code"].stringValue = "400"
-                jsonResponse["message"].stringValue = "Key Erreur : \(error)" 
-            }
-            else {
-                jsonResponse["code"].stringValue = "200"
-                jsonResponse["message"].stringValue = "popularity OK"
-            }
+    let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
+    
+    let redis = Redis()
+    connectRedis(redis: redis) { (redisError: NSError?) in
+        if let error = redisError {
+          jsonResponse["code"].stringValue = "500"
+          jsonResponse["message"].stringValue = "Erreur connect redis: \(error)"
         }
+
+        else {
+
+            redis.hget(idMessage, field:"popularity") {(value: RedisString?, redisError: NSError?) in
+                if let error = redisError {
+                  jsonResponse["code"].stringValue = "400"
+                  jsonResponse["message"].stringValue = "Key Erreur : \(error)"
+                }
+
+                if let v = value {
+                  let  newVal = (v.asInteger + 1)
+                  redis.hset(idMessage, field:"popularity", value: String(newVal)) {(ok: Bool?, redisError: NSError?) in
+                    if let error = redisError {
+                      jsonResponse["code"].stringValue = "400"
+                      jsonResponse["message"].stringValue = "Key Erreur : \(error)"
+                    }
+                    else {
+                      jsonResponse["code"].stringValue = "200"
+                      jsonResponse["message"].stringValue = "popularity OK"
+                      jsonResponse["popularity"].stringValue = "\(newVal)"
+                    }
+                  }//fin request redis HSET 
+                }
+                else {
+                  jsonResponse["code"].stringValue = "400"
+                  jsonResponse["message"].stringValue = "Key incorrect"
+                }
+            }//fin request redis HGET 
+         
+        }//Fin else
+    }//FIn connect Resdis   
     default:
-        break
-    }
-}   
+      jsonResponse["code"].stringValue = "404"
+      jsonResponse["message"].stringValue = "key required"
+      break
+    }//Fin switch
+    
+    print("POST - /app/mess/key \(jsonResponse.rawString)")
+    try response.status(.OK).send(json: jsonResponse).end()
+  }
 
 
 
