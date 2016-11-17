@@ -159,6 +159,10 @@ public class Controller {
     }
   }
 
+  func chekToken (token : String, callback: (Bool, NSError?) -> Void) {
+    
+  }
+
   public func postMessages(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
     Log.debug("POST - /app/messages route handler...")
     response.headers["Content-Type"] = "text/plain; charset=utf-8"
@@ -196,6 +200,23 @@ public class Controller {
       }
       else{
 
+        var maxMsg = 50
+        var fromMsg = 1
+        redis.get("nb") { (value: RedisString?, redisError: NSError?) in
+
+          if let error = redisError {
+            jsonResponse["code"].stringValue = "500"
+            jsonResponse["message"].stringValue = "Erreur cmd redis get nb: \(error)"
+          }
+          if let nb = value{
+            maxMsg = nb.asInteger
+            fromMsg = maxMsg - 50
+            if fromMsg < 1{
+              fromMsg = 1
+            }
+          }
+        }        
+        print("rechcher de \(fromMsg) to \(maxMsg)")
         //On récupère les 50 dernière messages
         var j = 0
         for i in stride(from: 1,to: 50, by: 1){
@@ -245,7 +266,7 @@ public class Controller {
 
               //write in JSON the message if valide
               if err == false {
-                let radiusFloat = Float(radiusMobile) //Convertir le radius de string -> float valeur unité KM
+                let radiusFloat = Double(radiusMobile) //Convertir le radius de string -> float valeur unité KM
                 //Récupérer les éléments de chaque message en json 
                 var resultDistance: Double
 
