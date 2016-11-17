@@ -15,8 +15,8 @@ let Auth_host = "localhost"
 let Auth_password = "password"
 let authenticate = false
 
-struct MyVariablesGlobale { //Seulement local 
-    static var nbkeys = [Int]()  //nombre de clé totale pour les messages postés
+struct MyVariablesGlobale { //Only local
+    static var nbkeys = [Int]()  //Number of total keys 
 }
 
 extension Int {
@@ -28,38 +28,25 @@ extension FloatingPoint {
     var radiansToDegrees: Self { return self * 180 / .pi }
 }
 
-// func JSONStringify(value: AnyObject, prettyPrinted: Bool = false) -> String {
-//     var options = prettyPrinted ? NSJSONWritingOptions.PrettyPrinted : nil
-//     if NSJSONSerialization.isValidJSONObject(value) {
-//         if let data = NSJSONSerialization.dataWithJSONObject(value, options: options, error: nil) {
-//             if let string = NSString(data: data, encoding: NSUTF8StringEncoding) {
-//                 return string
-//             }
-//         }
-//     }
-//     return ""
-// }
 
-//calcul with longitude latitude  
+    //Function to calculate the distance between 2 points
     public func Distance(latitudeA_degre: String, longitudeA_degre: String, latitudeB_degre: String, longitudeB_degre: String) -> Double {
 
-        //Convertir les données en float 
-        //let latitudeA_deg_float = (latitudeA_degre as NSString).floatValue
+        //Convert data from String to Double
         let latitudeA_deg_float = Double(latitudeA_degre)
         let longitudeA_deg_float = Double(longitudeA_degre)
         let latitudeB_deg_float = Double(latitudeB_degre)
         let longitudeB_deg_float = Double(longitudeB_degre)
 
-        //Convertir les données de degrés en radian 
+        //Convert data from degrees to radian 
         let latitudeA = Double(latitudeA_deg_float!).degreesToRadians
         let longitudeA = Double(longitudeA_deg_float!).degreesToRadians
         let latitudeB = Double(latitudeB_deg_float!).degreesToRadians
         let longitudeB = Double(longitudeB_deg_float!).degreesToRadians
 
         var RayonTerre : Double
-        RayonTerre = 63780000 //Rayon de la terre en mètre
-        //var resultDistance: Float
-
+        RayonTerre = 63780000 //Radius of earth in meters
+ 
         let distanceResult = RayonTerre * ((3.14159265/2) - asin(sin(latitudeB) * sin(latitudeA) + cos(longitudeB - longitudeA) * cos(latitudeB) * cos(latitudeA)))
 
         return distanceResult/10000
@@ -85,7 +72,7 @@ func connectRedis (redis : Redis, callback: (NSError?) -> Void) {
   }
 
 
-router.post("/app/messages") { request, response, next in //Renvoyer les informations au client android
+router.post("/app/messages") { request, response, next in //Send messages to android
     guard let parsedBody = request.body else {
         next()
         return 
