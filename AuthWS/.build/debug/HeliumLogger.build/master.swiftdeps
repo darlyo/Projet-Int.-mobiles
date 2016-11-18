@@ -1,5 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "4839eb5dc4dbb7bc3d4a5ea5bd241133"
-build_time: [532001797, 681762000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/HeliumLogger-1.1.0/Sources/HeliumLogger/HeliumLogger.swift": [532001775, 0]

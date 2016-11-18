@@ -1,7 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "64ca3201210bf40417bf98c2ee49072b"
-build_time: [532001788, 317487000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Socket-0.11.39/Sources/SocketUtils.swift": [532001742, 0]
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Socket-0.11.39/Sources/Socket.swift": [532001742, 0]
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/Socket-0.11.39/Sources/SocketProtocols.swift": [532001742, 0]

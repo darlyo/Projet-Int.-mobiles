@@ -1,5 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "487e661292384c76a6f87cf1a4edb4a6"
-build_time: [532447997, 382750000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Sources/main.swift": [532446518, 0]

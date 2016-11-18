@@ -1,5 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "260b4be9ce92b002808f6c63301c69c4"
-build_time: [532001795, 242613000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/LoggerAPI-1.1.0/Sources/LoggerAPI/Logger.swift": [532001738, 0]

@@ -1,6 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "9571c83c774c3f780fb42e05738f8cc7"
-build_time: [532001795, 860224000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/SwiftyJSON-15.0.0/Source/LclJSONSerialization.swift": [532001764, 0]
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/SwiftyJSON-15.0.0/Source/SwiftyJSON.swift": [532001764, 0]

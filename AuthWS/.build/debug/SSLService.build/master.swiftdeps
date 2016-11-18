@@ -1,5 +1,0 @@
-version: "Swift version 3.0.1 (swift-3.0.1-RELEASE)"
-options: "e3de25061407af3ac36d40e9c2bc8ee5"
-build_time: [532001800, 425702000]
-inputs:
-  "/home/kevin/Documents/Projet-Int.-mobiles/AuthWS/Packages/SSLService-0.11.53/Sources/SSLService.swift": [532001753, 0]
