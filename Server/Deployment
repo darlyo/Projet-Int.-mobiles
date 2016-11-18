@@ -1,7 +1,0 @@
-Deployment on IBM bluemix cloud foundry.
-
-create 2 redis servers.
-
-Use service credential to collect the password, URL and port to connect apply.
-
-create 2 apply swift with runtime for swift.
