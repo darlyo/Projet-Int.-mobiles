@@ -1,4 +1,15 @@
----------------------INSTAL----------------------
+---------------------README----------------------
+Le projet comprend :
+	- 2 services web en Swift avec Kitura et une bdd Redis
+	- 1 systeme d'alerte en Python
+	- 1 application mobile en Android
+
+On lance les services sur bluemix.
+
+---------------------LICENCES----------------------
+Appache2
+
+---------------------INSTAL Divers----------------------
 
 ----KITURA----
  Install the following Linux system packages:
