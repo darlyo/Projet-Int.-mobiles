@@ -210,7 +210,7 @@ public class Controller {
     }
 
     var jsonResponse = JSON([:])
-    if checkToken(token : token) {
+    //if checkToken(token : token) {
       let redis = Redis()
       connectRedis(redis: redis) { (redisError: NSError?) in
         if let error = redisError {
@@ -306,11 +306,11 @@ public class Controller {
           } 
         }
       }
-    }
-    else{
-      jsonResponse["code"].stringValue = "500"
-      jsonResponse["message"].stringValue = "token incorrect"
-    }
+    //}
+    // else{
+    //   jsonResponse["code"].stringValue = "500"
+    //   jsonResponse["message"].stringValue = "token incorrect"
+    // }
     print("POST - /app/messages ")
     Log.debug("POST - /app/messages \(jsonResponse.rawString)")
     try response.status(.OK).send(json: jsonResponse).end()
@@ -337,7 +337,7 @@ public class Controller {
       let token = jsonBody["token"].string ?? "0"
 
       // check token
-      if checkToken(token:token) {
+      //if checkToken(token:token) {
         let redis = Redis()
         connectRedis(redis: redis) { (redisError: NSError?) in
           if let error = redisError {
@@ -380,11 +380,11 @@ public class Controller {
             
           }
         }
-      }
-      else{
-        jsonResponse["code"].stringValue = "500"
-        jsonResponse["message"].stringValue = "token incorrect"
-      }
+      //}
+      // else{
+      //   jsonResponse["code"].stringValue = "500"
+      //   jsonResponse["message"].stringValue = "token incorrect"
+      // }
     default:
       jsonResponse["code"].stringValue = "400"
       jsonResponse["message"].stringValue = "JSON required"
@@ -411,7 +411,7 @@ public class Controller {
       let idMessage = jsonBody["key"].string ?? "" //Recupérer la valeur de l'id du topic
       let token = jsonBody["token"].string ?? "" //Recupérer la valeur de l'id du topic
 
-      let valide = checkToken(token : token)
+      let valide = true //checkToken(token : token)
       if valide{
         let redis = Redis()
         connectRedis(redis: redis) { (redisError: NSError?) in
@@ -449,10 +449,10 @@ public class Controller {
           }
         }
       }
-      else{
-        jsonResponse["code"].stringValue = "500"
-        jsonResponse["message"].stringValue = "token incorrect"
-      }
+      // else{
+      //   jsonResponse["code"].stringValue = "500"
+      //   jsonResponse["message"].stringValue = "token incorrect"
+      // }
     default:
       jsonResponse["code"].stringValue = "404"
       jsonResponse["message"].stringValue = "key required"
