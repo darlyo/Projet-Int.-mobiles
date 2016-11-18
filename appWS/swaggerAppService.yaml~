@@ -36,8 +36,19 @@ paths:
           in: query
           description: Hours of posted messages.
           required: true
-          type: number
+					type: number
           format: float
+				- name: date
+          in: query
+          description: Date of posted message
+          required: true
+          type: string
+				- name: token
+          in: query
+          description: request of connexion.
+          required: true
+          type: integer
+          format: int32
       tags:
         - Collect messages
       responses:
@@ -93,12 +104,19 @@ paths:
           in: query
           description: Hours of posted message
           required: true
-          type: string
+          type: number
+					format: float
         - name: topic
           in: query
           description: Name of posted message
           required: true
           type: string
+				- name: token
+          in: query
+          description: request of connexion.
+          required: true
+          type: integer
+          format: int32
       tags:
         - Create message
       responses:
@@ -122,12 +140,18 @@ paths:
               $ref: '#/definitions/Error500'
           
   /app/popularity/key:
-    put:
+    post:
       description: The customer shares the topic of the message
       parameters:
         - name: key
           in: query
           description: ID of topic
+          required: true
+          type: integer
+          format: int32
+				- name: token
+          in: query
+          description: request of connexion.
           required: true
           type: integer
           format: int32

@@ -36,8 +36,19 @@ paths:
           in: query
           description: Hours of posted messages.
           required: true
-          type: number
+					type: number
           format: float
+				- name: date
+          in: query
+          description: Date of posted message
+          required: true
+          type: string
+				- name: token
+          in: query
+          description: request of connexion.
+          required: true
+          type: integer
+          format: int32
       tags:
         - Collect messages
       responses:
@@ -78,12 +89,6 @@ paths:
           required: true
           type: number
           format: double
-        - name: popularity
-          in: query
-          description: Popularity for each topic
-          required: true
-          type: integer
-          format: int32
         - name: date
           in: query
           description: Date of posted message
@@ -93,12 +98,19 @@ paths:
           in: query
           description: Hours of posted message
           required: true
-          type: string
+          type: number
+					format: float
         - name: topic
           in: query
           description: Name of posted message
           required: true
           type: string
+				- name: token
+          in: query
+          description: request of connexion.
+          required: true
+          type: integer
+          format: int32
       tags:
         - Create message
       responses:
@@ -128,6 +140,12 @@ paths:
         - name: key
           in: query
           description: ID of topic
+          required: true
+          type: integer
+          format: int32
+				- name: token
+          in: query
+          description: request of connexion.
           required: true
           type: integer
           format: int32
