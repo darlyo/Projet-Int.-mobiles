@@ -6,6 +6,10 @@ Le projet comprend :
 
 On lance les services sur bluemix.
 
+Pour récupèrer le projet:
+git clone https://github.com/darlyo/Projet-Int.-mobiles.git
+git checkout tags/v1.0
+
 ---------------------LICENCES----------------------
 Appache2
 
